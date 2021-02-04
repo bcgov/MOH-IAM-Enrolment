@@ -1,0 +1,96 @@
+<form [formGroup]="fg">
+  <div class="form-group col-sm-8 p-sm-0">
+    <!-- Title (optional); multi-select -->
+    <div class="row">
+      <div class="col-sm-4">
+        <label class="control-label" for="userTitle_{{formIndex}}">Title (optional)</label>
+        <select class="form-control" id="userTitle_{{formIndex}}" *ngIf="userTitles" formControlName="userTitle" maxlength="5">
+          <option value="" label="" selected></option>
+          <option *ngFor="let title of userTitles " [value]="title">{{title}}</option>
+        </select>
+      </div>
+      <!-- First Name -->
+      <div class="col-sm-8">
+        <label class="control-label" for="firstName_{{formIndex}}">First Name</label>
+        <input id="firstName_{{formIndex}}" formControlName="firstName" class="form-control" maxlength="100">
+        <sitereg-error-box [error]="validFormControl(fg,'firstName')"
+          errorMessage="First name is required. Please provide valid first name."></sitereg-error-box>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+
+        <!-- Int (optional)-->
+        <label class="control-label" for="initial_{{formIndex}}">Initial (optional)</label>
+        <input id="initial_{{formIndex}}" formControlName="initial" class="form-control" maxlength="1">
+        <sitereg-error-box [error]="validFormControl(fg,'initial')" errorMessage="One character"></sitereg-error-box>
+
+      </div>
+      <div class="col-sm-8">
+
+        <!-- Last Name -->
+        <label class="control-label" for="lastName_{{formIndex}}">Last Name</label>
+        <input id="lastName_{{formIndex}}" formControlName="lastName" class="form-control" maxlength="100">
+        <sitereg-error-box [error]="validFormControl(fg,'lastName')"
+          errorMessage="Last Name is required. Please provide valid last name."></sitereg-error-box>
+      </div>
+    </div>
+
+    <!-- Job Title -->
+    <label class="control-label" for="jobTitle_{{formIndex}}">Job Title</label>
+    <input id="jobTitle_{{formIndex}}" formControlName="jobTitle" class="form-control" maxlength="100">
+    <sitereg-error-box [error]="validFormControl(fg,'jobTitle')"
+      errorMessage="Job title is required. Please provide valid job title."></sitereg-error-box>
+
+    <!-- Email Address -->
+    <label class="control-label" for="emailAddress_{{formIndex}}">Email Address</label>
+    <input id="emailAddress_{{formIndex}}" formControlName="emailAddress" class="form-control" maxlength="100" >
+    <sitereg-error-box [error]="validFormControl(fg,'emailAddress')"
+      errorMessage="Email is required. Must be in the format test@example.com"></sitereg-error-box>
+
+    <!-- Confirm Email Address -->
+    <!-- TODO: make this a validator -->
+    <label class="control-label" for="confirmEmail_{{formIndex}}">Confirm Email Address</label>
+    <input id="confirmEmail_{{formIndex}}" formControlName="confirmEmail" class="form-control" maxlength="100">
+    <sitereg-error-box [error]="validFormControl(fg, 'confirmEmail')" errorMessage="Must match email address">
+    </sitereg-error-box>
+
+    <!-- Phone -->
+    <div class="row">
+      <div class="col-sm-8">
+        <label class="control-label" for="phone_{{formIndex}}">Phone</label>
+        <input id="phone_{{formIndex}}" formControlName="phone" class="form-control" maxlength="10">
+        <sitereg-error-box [error]="validFormControl(fg,'phone')"
+          errorMessage="Phone number is required. Must be in the format 0000000000"></sitereg-error-box>
+      </div>
+
+      <!-- Ext (optional) -->
+      <div class="col-sm-4">
+        <label class="control-label" for="ext_{{formIndex}}">Ext (optional)</label>
+        <input id="ext_{{formIndex}}" formControlName="ext" class="form-control"  maxlength="100">
+        <sitereg-error-box [error]="validFormControl(fg,'ext')" errorMessage="Please provide valid Extension">
+        </sitereg-error-box>
+      </div>
+
+    </div>
+    <!-- Fax (optional)-->
+    <label class="control-label" for="fax_{{formIndex}}">Fax (optional)</label>
+    <input id="fax_{{formIndex}}" formControlName="fax" class="form-control"  maxlength="10">
+    <sitereg-error-box [error]="validFormControl(fg,'fax')" errorMessage="Please provide valid Fax number">
+    </sitereg-error-box>
+
+    <ng-container *ngIf='showAdministeringMSPForQuestion'>
+
+          <!-- Administrating For-->
+          <label class="control-label" for="administeringFor_{{formIndex}}">This person will be administering MSP for</label>
+          <select class="form-control" id="administeringFor_{{formIndex}}" *ngIf="administeringFor | async as administering" formControlName="administeringFor">
+            <option value="" label="-- Select Option --" selected></option>
+            <option *ngFor="let a of administering " [value]="a">{{a}}</option>
+          </select>
+          <div class="text-danger" *ngIf="validFormControl(fg,'administeringFor')">
+              Please select a valid option
+          </div>
+    </ng-container>
+
+  </div>
+</form>

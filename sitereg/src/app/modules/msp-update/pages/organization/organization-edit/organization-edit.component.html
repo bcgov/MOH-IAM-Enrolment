@@ -1,0 +1,80 @@
+<form [formGroup]="parentForm">
+  <div class="form-group col-sm-8 p-sm-0">
+
+    <!-- Organization Name -->
+    <label class="control-label" for="orgname">Organization Name</label>
+    <input id="orgname" formControlName="organizationName" class="form-control" maxlength="100">
+    <div class="text-danger" *ngIf="validFormControl(parentForm,'organizationName')">
+      Enter Organization name
+    </div>
+
+    <!-- Address Lookup -->
+    <common-address-validator id="addressLookup"
+                              formControlName="addressLookup"
+                              label="Address Lookup (optional)"
+                              [serviceUrl]="addressServiceUrl"
+                              (select)="onAddressSelect($event)"></common-address-validator>
+
+    <div class="row">
+
+      <!-- Suite Number-->
+      <div class="col-sm-3">
+        <label class="control-label" for="suite">Suite# (optional)</label>
+        <input id="suite" formControlName="suite" class="form-control" maxlength="10">
+        <div class="text-danger" *ngIf="validFormControl(parentForm,'suite')">
+          Enter valid Suite# (optional)
+        </div>
+      </div>
+
+      <!-- Street Number -->
+      <div class="col-sm-4">
+        <label class="control-label" for="street">Street#</label>
+        <input id="street" formControlName="street" class="form-control" maxlength="10">
+        <div class="text-danger" *ngIf="validFormControl(parentForm,'street')">
+          Enter valid Street#
+        </div>
+      </div>
+      <!-- Street Name -->
+      <div class="col-sm-5">
+        <common-street formControlName="streetName" maxlen="75" ></common-street>
+      </div>
+    </div>
+
+    <!-- Address Line 2 -->
+    <label class="control-label" for="addressLine2">Street Address Line 2 (optional)</label>
+    <input id="addressLine2" formControlName="addressLine2" class="form-control" 
+       maxlength="200">
+    <div class="text-danger" *ngIf="validFormControl(parentForm,'addressLine2')">
+      Enter valid Street Address Line 2
+    </div>
+
+    <common-city formControlName="city" maxlen="25"></common-city>
+    <sitereg-error-box [error]="validFormControl(parentForm,'city')" errorMessage='Please enter a valid city name'>
+    </sitereg-error-box>
+
+    <div class="row">
+      <div class="col-sm-8">
+        <common-province label='Province' formControlName='province'  ></common-province>
+      </div>
+      <div class="col-sm-4">
+        <common-postal-code label='Postal Code' formControlName='postalCode'></common-postal-code>
+      </div>
+    </div>
+
+    <!-- <common-dropdown label='The organization will be administering MSP for:' formControlName='administeringFor'
+      [items]='administeringForOptions' [clearable]='true' placeholder="-- Select Option --" [addTag]="false" ></common-dropdown> -->
+      <label class="control-label" for="administeringFor">The organization will be administering MSP for:</label>
+      <select class="form-control" id="administeringFor" *ngIf="administeringForOptions"
+        formControlName="administeringFor">
+        <option *ngFor="let a of administeringForOptions " [value]="a">{{a}}</option>
+      </select>
+    <sitereg-error-box [error]="validFormControl(parentForm,'administeringFor')" errorMessage='Please select a valid option'>
+    </sitereg-error-box>
+
+   
+  </div>
+</form>
+
+<!-- <sitereg-update-json-view
+[showRaw]="false" [raw]='parentForm.value' 
+[showJson]="true" [json]='json(parentForm.value)'></sitereg-update-json-view>  -->

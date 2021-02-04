@@ -1,0 +1,27 @@
+<common-page-framework layout="blank">
+    <h1>Signing Authority</h1>
+    <p class="border-bottom">The Signing Authority is the person with the authority to sign the Data Access Agreement that binds your
+        Organization to the terms and conditions document. Only one <b>Signing Authority</b> can be added per
+        Organization.</p>
+    <common-page-section layout="tips">
+        <!-- <aside>
+            The Signing Authority is the person with the authority to sign the Data Access Agreement that binds your
+            Organization to the terms and conditions document. Only one <b>Signing Authority</b> can be added per
+            Organization.
+        </aside> -->
+        
+        <div *ngIf="fg">
+
+            <sitereg-msp-register-user-msp [fg]="fg" [showMspDirectAccessQuestion]="true">
+            </sitereg-msp-register-user-msp>
+
+        </div>
+        <div *ngIf="globalConfigSvc.debug">
+            Debugging purposes only:
+            <ngx-json-viewer [json]="schemaObject()" [expanded]="true"></ngx-json-viewer>
+        </div>
+    </common-page-section>
+</common-page-framework>
+<common-form-action-bar (btnClick)="continue()" [canContinue]="fg.valid">
+
+</common-form-action-bar>
