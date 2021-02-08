@@ -21,7 +21,8 @@
     "e2e:update": "npm run e2e-protractor -- e2e/protractor.update.conf.js",
     "format": "prettier --write \"src/**/*.ts\" && npm run lint && npm run build",
     "publish": "ng build --prod --output-hashing none",
-    "webdriver-update": "webdriver-manager update"
+    "webdriver-update": "webdriver-manager update",
+    "test:coverage": "echo \"WARNING: No test specified\" && exit 0"
   },
   "private": true,
   "dependencies": {
