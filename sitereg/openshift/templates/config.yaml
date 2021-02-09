@@ -113,6 +113,16 @@ objects:
               gzip_types *;
             }
 
+            location /health {
+              add_header Content-Type text/plain;
+              return 200;
+            }
+            
+            location /hello {
+              add_header Content-Type text/plain;
+              return 200;
+            }
+
             location /api {
               proxy_pass http://msp-service:8080/;
               proxy_read_timeout 300;
