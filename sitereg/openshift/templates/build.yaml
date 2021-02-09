@@ -141,7 +141,7 @@ parameters:
   displayName: Source Context Directory
   name: SOURCE_CONTEXT_DIR
   required: false
-  value: "iam"
+  value: "sitereg"
 - description: The tag given to the built image.
   displayName: Output Image Tag
   name: OUTPUT_IMAGE_TAG
