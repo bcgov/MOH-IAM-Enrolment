@@ -247,3 +247,12 @@ parameters:
     name: USE_SPLUNK_FORWARDER
     value: "true"
     required: false
+  - description: HTTP_BASIC_USERNAME
+    name: HTTP_BASIC_USERNAME
+    required: false
+  - description: HTTP_BASIC_PASSWORD
+    name: HTTP_BASIC_PASSWORD
+    required: false
+  - description: FPC_ENV
+    name: FPC_ENV
+    required: false

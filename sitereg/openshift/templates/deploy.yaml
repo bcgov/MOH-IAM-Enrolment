@@ -147,6 +147,10 @@ objects:
                 value: ${ROUTER_DEFAULT_SERVER_TIMEOUT}
               - name: ROUTER_DEFAULT_CLIENT_TIMEOUT
                 value: ${ROUTER_DEFAULT_CLIENT_TIMEOUT}
+              - name: HTTP_BASIC_USERNAME
+                value: ${HTTP_BASIC_USERNAME}
+              - name: HTTP_BASIC_PASSWORD
+                value: ${HTTP_BASIC_PASSWORD}
             resources:
               limits:
                 cpu: 300m
@@ -228,3 +232,17 @@ parameters:
   name: LOG_LEVEL
   value: "info"
   required: true
+- description: LOG_LEVEL
+  name: LOG_LEVEL
+  value: "info"
+  required: true
+- description: LOG_LEVEL
+  name: LOG_LEVEL
+  value: "info"
+  required: true
+- description: HTTP_BASIC_USERNAME
+  name: HTTP_BASIC_USERNAME
+  required: false
+- description: HTTP_BASIC_PASSWORD
+  name: HTTP_BASIC_PASSWORD
+  required: false

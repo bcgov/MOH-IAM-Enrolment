@@ -109,6 +109,24 @@ objects:
                   value: ${MUTUAL_TLS_PEM_CERT}
                 - name: ADDRESS_VALIDATOR_URL
                   value: ${ADDRESS_VALIDATOR_URL}
+                - name: LOGGER_HOST
+                  value: ${LOGGER_HOST}
+                - name: TARGET_URL
+                  value: ${TARGET_URL}
+                - name: AUTH_TOKEN_KEY
+                  value: ${AUTH_TOKEN_KEY}
+                - name: USE_AUTH_TOKEN
+                  value: ${USE_AUTH_TOKEN}
+                - name: TARGET_USERNAME_PASSWORD
+                  value: ${TARGET_USERNAME_PASSWORD}
+                - name: SECURE_MODE
+                  value: ${SECURE_MODE}
+                - name: USE_MUTUAL_TLS
+                  value: ${USE_MUTUAL_TLS}
+                - name: LOGGER_PORT
+                  value: ${LOGGER_PORT}
+                - name: SPLUNK_AUTH_TOKEN
+                  value: ${SPLUNK_AUTH_TOKEN}
               resources:
                 limits:
                   cpu: 200m
@@ -163,4 +181,40 @@ parameters:
   - name: ADDRESS_VALIDATOR_URL
     description: ADDRESS_VALIDATOR_URL
     displayName: ADDRESS_VALIDATOR_URL
+    required: true
+  - name: LOGGER_HOST
+    description: LOGGER_HOST
+    displayName: LOGGER_HOST
+    required: true
+  - name: TARGET_URL
+    description: TARGET_URL
+    displayName: TARGET_URL
+    required: true
+  - name: AUTH_TOKEN_KEY
+    description: AUTH_TOKEN_KEY
+    displayName: AUTH_TOKEN_KEY
+    required: true
+  - name: USE_AUTH_TOKEN
+    description: USE_AUTH_TOKEN
+    displayName: USE_AUTH_TOKEN
+    required: true
+  - name: TARGET_USERNAME_PASSWORD
+    description: TARGET_USERNAME_PASSWORD
+    displayName: TARGET_USERNAME_PASSWORD
+    required: true
+  - name: SECURE_MODE
+    description: SECURE_MODE
+    displayName: SECURE_MODE
+    required: true
+  - name: USE_MUTUAL_TLS
+    description: USE_MUTUAL_TLS
+    displayName: USE_MUTUAL_TLS
+    required: true
+  - name: LOGGER_PORT
+    description: LOGGER_PORT
+    displayName: LOGGER_PORT
+    required: true
+  - name: SPLUNK_AUTH_TOKEN
+    description: SPLUNK_AUTH_TOKEN
+    displayName: SPLUNK_AUTH_TOKEN
     required: true
