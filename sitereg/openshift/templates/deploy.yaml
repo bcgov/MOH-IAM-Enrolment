@@ -30,7 +30,7 @@ objects:
       app: iam-enrolment-web
     name: ${NAME}-to-api
   spec:
-    host: "${NAME}-${BCP_ENV}.${CLUSTER_DOMAIN}"
+    host: "${NAME}-${IAM_ENV}.${CLUSTER_DOMAIN}"
     path: "/api"
     port:
       targetPort: 8080-tcp
@@ -139,10 +139,10 @@ objects:
                 value: ${SPLUNK_AUTH_TOKEN}
               - name: SPA_ENV_AUTH_TOKEN
                 value: ${SPA_ENV_AUTH_TOKEN}
-              - name: BCP_ENV
-                value: ${BCP_ENV}
-              - name: BCP_VERSION
-                value: ${BCP_VERSION}
+              - name: IAM_ENV
+                value: ${IAM_ENV}
+              - name: IAM_VERSION
+                value: ${IAM_VERSION}
               - name: ROUTER_DEFAULT_SERVER_TIMEOUT
                 value: ${ROUTER_DEFAULT_SERVER_TIMEOUT}
               - name: ROUTER_DEFAULT_CLIENT_TIMEOUT
@@ -213,8 +213,8 @@ parameters:
 - description: SPA_ENV_AUTH_TOKEN
   name: SPA_ENV_AUTH_TOKEN
   required: true
-- description: BCP_ENV
-  name: BCP_ENV
+- description: IAM_ENV
+  name: IAM_ENV
   required: true
 - description: ROUTER_DEFAULT_SERVER_TIMEOUT
   name: ROUTER_DEFAULT_SERVER_TIMEOUT

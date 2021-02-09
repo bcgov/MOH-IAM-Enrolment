@@ -212,8 +212,8 @@ parameters:
   - description: SPA_ENV_AUTH_TOKEN
     name: SPA_ENV_AUTH_TOKEN
     required: true
-  - description: BCP_ENV
-    name: BCP_ENV
+  - description: IAM_ENV
+    name: IAM_ENV
     required: true
   - description: SOURCE_IMAGE_TAG
     name: SOURCE_IMAGE_TAG

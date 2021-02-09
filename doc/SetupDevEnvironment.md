@@ -60,7 +60,7 @@ oc process -f openshift/templates/deploy.yaml --param-file=params-dev.txt | oc a
 4. go to github, then actions, then try it.
 
 
-## For the BCP application
+## For the IAM application
 
 1. go to the iam directory
 

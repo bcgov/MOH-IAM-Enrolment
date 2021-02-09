@@ -121,7 +121,7 @@
       "displayName": "Source Repository",
       "description": "The source repository to use for the builds.",
       "required": true,
-      "value": "https://github.com/bcgov/moh-bcp.git"
+      "value": "https://github.com/bcgov/moh-iam.git"
     },
     {
       "name": "GIT_REFERENCE",
