@@ -8,7 +8,7 @@
 ```console
 oc process -f openshift/templates/nsp-tools.yaml \
   -p NAMESPACE=$(oc project --short) | \
-  oc create -f -
+  oc apply -f -
 ```
 
 2. Next, create a service account that GitHub can use to run `oc` commands on the cluster. This service account has very limited access to trigger builds, list images, and create tags:
@@ -16,13 +16,13 @@ oc process -f openshift/templates/nsp-tools.yaml \
 ```consoleoc 
 oc process -f openshift/templates/cicd.yaml \
   -p NAMESPACE=$(oc project --short) | \
-  oc create -f -
+  oc apply -f -
 ```
 
 You should see a few secrets have been created (and a service account):
 
 ```console
-➜  MOH-BCP-Enrolment git:(main) ✗ oc get secrets |grep github
+➜  MOH-IAM-Enrolment git:(main) ✗ oc get secrets |grep github
 github-cicd-dockercfg-pn4x6   kubernetes.io/dockercfg
 github-cicd-token-c74j8       kubernetes.io/service-account-token
 github-cicd-token-p69fn       kubernetes.io/service-account-token
