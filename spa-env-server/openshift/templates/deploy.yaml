@@ -156,6 +156,12 @@ objects:
                   value: ${SPA_ENV_SITEREG_DEBUG}
                 - name: SPA_ENV_SITEREG_DISABLE_FORM2
                   value: ${SPA_ENV_SITEREG_DISABLE_FORM2}
+                - name: SPA_ENV_MSP_MAINTENANCE_FLAG
+                  value: ${SPA_ENV_MSP_MAINTENANCE_FLAG}
+                - name: SPA_ENV_MSP_TIME_FORMAT
+                  value: ${SPA_ENV_MSP_TIME_FORMAT}
+                - name: SPA_ENV_MSP_MAINTENANCE_MESSAGE
+                  value: ${SPA_ENV_MSP_MAINTENANCE_MESSAGE}
               resources:
                 limits:
                   cpu: 200m
@@ -301,3 +307,15 @@ parameters:
     description: SPA_ENV_SITEREG_DISABLE_FORM2
     displayName: SPA_ENV_SITEREG_DISABLE_FORM2
     value: "false"
+  - name: SPA_ENV_MSP_MAINTENANCE_FLAG
+    description: SPA_ENV_MSP_MAINTENANCE_FLAG
+    displayName: SPA_ENV_MSP_MAINTENANCE_FLAG
+    required: false
+  - name: SPA_ENV_MSP_TIME_FORMAT
+    description: SPA_ENV_MSP_TIME_FORMAT
+    displayName: SPA_ENV_MSP_TIME_FORMAT
+    required: false
+  - name: SPA_ENV_MSP_MAINTENANCE_MESSAGE
+    description: SPA_ENV_MSP_MAINTENANCE_MESSAGE
+    displayName: SPA_ENV_MSP_MAINTENANCE_MESSAGE
+    required: false
