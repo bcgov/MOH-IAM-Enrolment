@@ -162,6 +162,10 @@ objects:
                   value: ${SPA_ENV_MSP_TIME_FORMAT}
                 - name: SPA_ENV_MSP_MAINTENANCE_MESSAGE
                   value: ${SPA_ENV_MSP_MAINTENANCE_MESSAGE}
+                - name: SPA_ENV_MSP_MAINTENANCE_START
+                  value: ${SPA_ENV_MSP_MAINTENANCE_START}
+                - name: SPA_ENV_MSP_MAINTENANCE_END
+                  value: ${SPA_ENV_MSP_MAINTENANCE_END}
               resources:
                 limits:
                   cpu: 200m
@@ -318,4 +322,12 @@ parameters:
   - name: SPA_ENV_MSP_MAINTENANCE_MESSAGE
     description: SPA_ENV_MSP_MAINTENANCE_MESSAGE
     displayName: SPA_ENV_MSP_MAINTENANCE_MESSAGE
+    required: false
+  - name: SPA_ENV_MSP_MAINTENANCE_START
+    description: SPA_ENV_MSP_MAINTENANCE_START
+    displayName: SPA_ENV_MSP_MAINTENANCE_START
+    required: false
+  - name: SPA_ENV_MSP_MAINTENANCE_END
+    description: SPA_ENV_MSP_MAINTENANCE_END
+    displayName: SPA_ENV_MSP_MAINTENANCE_END
     required: false
