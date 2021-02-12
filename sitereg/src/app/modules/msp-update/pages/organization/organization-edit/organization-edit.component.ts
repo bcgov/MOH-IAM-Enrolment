@@ -9,6 +9,7 @@ import { getEditJSONofOrganization } from '../shared/organization-json-map';
 import { RandomObjects, IDataForm } from '../../../common/i-dataform';
 import { environment } from 'src/environments/environment.prod';
 import { Address } from 'moh-common-lib';
+import { SpaEnvService } from '@shared/services/spa-env.service';
 
 @Component({
     selector: 'sitereg-update-organization-edit',
@@ -27,7 +28,8 @@ export class MspDirectUpdateOrganizationEditComponent
     validFormControl: (fg: FormGroup, name: string) => boolean;
     json: (formValues: any) => any;
 
-    constructor(private fb: FormBuilder) {
+    constructor(private fb: FormBuilder,
+                private spaEnvService: SpaEnvService) {
         this.validFormControl = validMultiFormControl;
         this.json = getEditJSONofOrganization;
     }
@@ -85,6 +87,11 @@ export class MspDirectUpdateOrganizationEditComponent
     patchValue(formGroup) {
         if (!environment.useDummyData) return;
         formGroup.patchValue(RandomObjects.getOrganization('Org'));
+    }
+
+    get isAddressValidatorEnabled(): boolean {
+        const env = this.spaEnvService.getValues();
+        return env && env.SPA_ENV_ENABLE_ADDRESS_VALIDATOR === 'true';
     }
 
     // TODO: Add unit tests to confirm form patch.

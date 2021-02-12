@@ -9,7 +9,8 @@
     </div>
 
     <!-- Address Lookup -->
-    <common-address-validator id="addressLookup"
+    <common-address-validator *ngIf='isAddressValidatorEnabled'
+                              id="addressLookup"
                               formControlName="addressLookup"
                               label="Address Lookup (optional)"
                               [serviceUrl]="addressServiceUrl"
