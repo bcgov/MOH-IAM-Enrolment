@@ -23,6 +23,7 @@ const serverEnvs = {
     SPA_ENV_SITEREG_MAINTENANCE_MESSAGE: '',
     SPA_ENV_SITEREG_DISABLE_FORM2: false,
     SPA_ENV_SITEREG_DEBUG: false,
+    SPA_ENV_ENABLE_ADDRESS_VALIDATOR: '',
 };
 
 // Used in HTTP request
@@ -75,6 +76,10 @@ export class SpaEnvService extends AbstractHttpService {
         // page, and it should resolve shortly, so we try again.
         // if (this.globalConfigSvc.debug) return of(null);
         return this.post<SpaEnvResponse>(url, null).pipe(retry(3));
+    }
+
+    public getValues(): SpaEnvResponse {
+        return this._values.getValue();
     }
 
     protected handleError(error: HttpErrorResponse) {

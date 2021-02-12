@@ -19,6 +19,7 @@ import {
 import { MspRegistrationService } from '@msp-register/msp-registration.service';
 import { ConsentModalComponent, Address } from 'moh-common-lib';
 import { environment } from 'src/environments/environment.prod';
+import { SpaEnvService } from '@shared/services/spa-env.service';
 
 @Component({
     selector: 'sitereg-msp-register-organization',
@@ -53,7 +54,8 @@ export class MspRegisterOrganizationComponent implements OnInit, AfterViewInit {
         public globalConfigSvc: GlobalConfigService,
         public mspRegisterStateSvc: MspRegisterStateService,
         public mspRegDataSvc: MspRegisterDataService,
-        public registrationService: MspRegistrationService
+        public registrationService: MspRegistrationService,
+        private spaEnvService: SpaEnvService
     ) {
         this.fg = this.mspRegisterStateSvc.mspRegisterOrganizationForm;
         this.validFormControl = validFormControl.bind(this);
@@ -155,6 +157,11 @@ export class MspRegisterOrganizationComponent implements OnInit, AfterViewInit {
         //     middleWareObject
         // );
         return middleWareObject;
+    }
+
+    get isAddressValidatorEnabled(): boolean {
+        const env = this.spaEnvService.getValues();
+        return env && env.SPA_ENV_ENABLE_ADDRESS_VALIDATOR === 'true';
     }
 
     // TODO: Add unit tests to confirm form patch.
