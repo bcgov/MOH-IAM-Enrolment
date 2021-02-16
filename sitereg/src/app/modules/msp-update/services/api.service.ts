@@ -83,7 +83,7 @@ export class MspUpdateApiService extends AbstractHttpService {
             );
         }
         // A user facing error message /could/ go here; we shouldn't log dev info through the throwError observable
-        return throwError('Unable to process registration request!');
+        return throwError(`Unable to process registration request: ${error}`);
     }
 
     // private
