@@ -36,7 +36,7 @@ export const buildTime = '${ buildTime }';
 export const projectVersion = '${projectVersion}';
 /** Human readable message  */
 export const message = 'Canonical Version: ${ trimmed } - ${ buildTime } (v${projectVersion}) ' +
-'\\nhttps://github.com/bcgov/moh-sitereg/commits/${ trimmed }';
+'\\nhttps://github.com/bcgov/MOH-IAM-Enrolment/commits/${ trimmed }';
 /** If true, other values should be present. */
 export const success = ${success};
 `
