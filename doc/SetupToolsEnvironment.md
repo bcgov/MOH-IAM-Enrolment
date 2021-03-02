@@ -160,34 +160,9 @@ oc process -f sitereg/openshift/templates/build.yaml | \
   oc create -f -
 ```
 
-### Deploy
-
-10. The deployment for the `iam` component is straight forward as it has little to no environment variables. The first step in the deploument is to create a `ConfigMap` with the necessary NGINX config:
-
-```console
-oc process -f sitereg/openshift/templates/config.yaml | \
-  oc create -f -
-```
-
-Once created deploy the web application:
-
-```console
-oc process -f sitereg/openshift/templates/deploy.yaml \
-  -p NAMESPACE=$(oc project --short) \
-  -p SOURCE_IMAGE_NAMESPACE=61ab99-tools \
-  -p SOURCE_IMAGE_TAG=dev | \
-  oc create -f -
-```
-
-| Parameter              | Required | Description |
-| :--------------------: | :------: | :---------- |
-| NAMESPACE              | Y        | The namespace the component is being deployed to. |
-| SOURCE_IMAGE_NAMESPACE | Y        | The namespace were the source image is located. |
-| SOURCE_IMAGE_TAG       | Y        | The image tag that will trigger deployments |
-
 ## Additional Components
 
-11. The work done on the `spa-env-server` component can be leveraged for the remanding components of this project. For example, to apply them to the `MyGovBC-MSP-Service` component the following steps will help:
+10. The work done on the `spa-env-server` component can be leveraged for the remanding components of this project. For example, to apply them to the `MyGovBC-MSP-Service` component the following steps will help:
 
 1) Copy the `gulpfile.js` with the build tasks;
 2) Install the packages with `npm -i -D NAME` that are located at the top of the gulpfile in the `require` lines.
@@ -211,3 +186,66 @@ The final step is to create a GitHub workflow:
 1) Copy the file `spa-env-server.yml` in the `.github/workflows` directory to a new file representing the new component.
 2) Update the paths and build names according to what you changed in `build.yaml`.
 3) Consider adding a manual trigger for testing purposes.
+
+10. Switch Apporeto to Kubernetes network policy
+
+Make sure you're in tools:
+
+```
+oc get nsp
+```
+
+And obtain name (such as builder-to-internet), and delete it, ie:
+
+```
+oc delete nsp builder-to-internet
+```
+
+```
+oc get en
+```
+
+And obtain names, then delete, ie:
+
+```
+oc delete en all-things-external all-things-external-builder
+```
+
+apply the quickstart mspweb to all (for tools, make sure your default oc project is tools):
+
+```
+cd /openshift/templates
+oc process -f quickmspweb-toall.yaml NAMESPACE=61ab99-tools | oc apply -f -
+```
+
+To check things out:
+The oc process should have created 3 networkpolicies and 2 network security policies. To check them:
+
+```
+oc get networkPolicy
+```
+
+NAME                              POD-SELECTOR           AGE
+allow-all-internal                <none>                 47h
+allow-from-openshift-ingress      <none>                 23h
+deny-by-default                   <none>                 23h
+iam-service-to-splunk-forwarder   role=splunkforwarder   23h
+iam-to-address-service            role=addressservice    23h
+iam-to-captcha-service            role=captchaservice    23h
+iam-to-msp-service                role=mspservice        23h
+iam-to-spa-env-server             role=spaenv            23h
+iam-to-splunk-forwarder           role=splunkforwarder   23h
+
+```
+oc get nsp
+```
+
+NAME              AGE
+any-to-any        8m23s
+any-to-external   47h
+
+To look more in detail, for example:
+```
+oc describe nsp/any-to-any
+oc describe networkpolicy/allow-all-internal
+```
