@@ -20,6 +20,7 @@ import { MspRegistrationService } from '@msp-register/msp-registration.service';
 import { ConsentModalComponent, Address } from 'moh-common-lib';
 import { environment } from 'src/environments/environment.prod';
 import { SpaEnvService } from '@shared/services/spa-env.service';
+import { getFullAddressText } from '../../.././msp-register/models/address-helpers';
 
 @Component({
     selector: 'sitereg-msp-register-organization',
@@ -68,17 +69,6 @@ export class MspRegisterOrganizationComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         this.registrationService.setItemIncomplete();
-        // console.log(
-        //     `%c%o : %o`,
-        //     'color:green',
-        //     funcRemoveStrings(
-        //         ['MspRegister', 'Component'],
-        //         this.constructor.name
-        //     ).toUpperCase(),
-        //     this.globalConfigSvc.applicationId
-        // );
-        // this.registrationService.setItemIncomplete();
-
         this.fg.valueChanges.subscribe((obs) => {
             // converts postalcode in upper case
             const postalCode = this.fg.get('postalCode');
@@ -87,7 +77,6 @@ export class MspRegisterOrganizationComponent implements OnInit, AfterViewInit {
                     emitEvent: false,
                 });
             }
-
             this.schemaObject();
         });
     }
@@ -143,19 +132,9 @@ export class MspRegisterOrganizationComponent implements OnInit, AfterViewInit {
     schemaObject() {
         if (!this.globalConfigSvc.debug) return;
         const form = this.mspRegisterStateSvc.mspRegisterOrganizationForm;
-        // console.log('FormGroup: ', form);
         const middleWareObject = this.mspRegDataSvc.mapOrgInformation(
             form.value
         );
-        // console.log(
-        //     `%c middleware object <= %o\n\t%o`,
-        //     'color:lightgreen',
-        //     funcRemoveStrings(
-        //         ['MspRegister', 'Component'],
-        //         this.constructor.name
-        //     ),
-        //     middleWareObject
-        // );
         return middleWareObject;
     }
 
@@ -166,10 +145,14 @@ export class MspRegisterOrganizationComponent implements OnInit, AfterViewInit {
 
     // TODO: Add unit tests to confirm form patch.
     onAddressSelect(address: Address) {
+        if (this.isAddressValidatorEnabled) {
+            address.addressLine2 = getFullAddressText(address);
+        }
         this.fg.patchValue({
             suite: address.unitNumber,
             street: address.streetNumber,
             streetName: address.streetName,
+            addressLine2: address.addressLine2,
             city: address.city,
             province: address.province,
             postalCode: address.postal.replace(' ', '')

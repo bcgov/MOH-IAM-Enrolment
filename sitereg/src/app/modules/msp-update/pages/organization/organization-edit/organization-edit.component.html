@@ -8,16 +8,14 @@
       Enter Organization name
     </div>
 
-    <!-- Address Lookup *ngIf="isAddressValidatorEnabled"-->
-    <ng-container>
-      <common-address-validator 
-                            label="Address Lookup (optional)"
-                            id="addressLookup"
-                            formControlName="addressLookup"
-                            maxlength='70'
-                            (select)='changeAddressSelected($event)'
-                            [serviceUrl]="addressServiceUrl"></common-address-validator>
-    </ng-container>
+    <!-- Address Lookup -->
+    <common-address-validator 
+                        *ngIf="isAddressValidatorEnabled"
+                        label="Address Lookup (optional)"
+                        id="addressLookup"
+                        formControlName="addressLookup"
+                        (select)='onAddressSelect($event)'
+                        [serviceUrl]="addressServiceUrl"></common-address-validator>
 
     <div class="row">
 

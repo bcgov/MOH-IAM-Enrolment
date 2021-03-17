@@ -50,21 +50,6 @@ export class MspDirectUpdateOrganizationEditComponent
         });
     }
 
-    changeAddressSelected(address: Address) {
-        if (this.isAddressValidatorEnabled) {
-            address.addressLine2 = getFullAddressText(address);
-        }
-        this.parentForm.patchValue({
-            suite: address.unitNumber,
-          street: address.streetNumber,
-          streetName: address.streetName,
-          addressLine2: address.addressLine2,
-          city: address.city,
-          province: address.province,
-          postalCode: address.postal
-        });
-    }
-
     private createOrUpdateForms() {
         if (!this.formState) {
             // console.log('create form');
@@ -107,5 +92,20 @@ export class MspDirectUpdateOrganizationEditComponent
     get isAddressValidatorEnabled(): boolean {
         const env = this.spaEnvService.getValues();
         return env && env.SPA_ENV_ENABLE_ADDRESS_VALIDATOR === 'true';
+    }
+
+    onAddressSelect(address: Address) {
+        if (this.isAddressValidatorEnabled) {
+            address.addressLine2 = getFullAddressText(address);
+        }
+        this.formState.patchValue({
+            suite: address.unitNumber,
+            street: address.streetNumber,
+            streetName: address.streetName,
+            addressLine2: address.addressLine2,
+            city: address.city,
+            province: address.province,
+            postalCode: address.postal
+        })
     }
 }
