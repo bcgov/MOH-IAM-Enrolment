@@ -8,13 +8,16 @@
       Enter Organization name
     </div>
 
-    <!-- Address Lookup -->
-    <common-address-validator *ngIf='isAddressValidatorEnabled'
-                              id="addressLookup"
-                              formControlName="addressLookup"
-                              label="Address Lookup (optional)"
-                              [serviceUrl]="addressServiceUrl"
-                              (select)="onAddressSelect($event)"></common-address-validator>
+    <!-- Address Lookup *ngIf="isAddressValidatorEnabled"-->
+    <ng-container>
+      <common-address-validator 
+                            label="Address Lookup (optional)"
+                            id="addressLookup"
+                            formControlName="addressLookup"
+                            maxlength='70'
+                            (select)='changeAddressSelected($event)'
+                            [serviceUrl]="addressServiceUrl"></common-address-validator>
+    </ng-container>
 
     <div class="row">
 
@@ -71,11 +74,8 @@
       </select>
     <sitereg-error-box [error]="validFormControl(parentForm,'administeringFor')" errorMessage='Please select a valid option'>
     </sitereg-error-box>
-
-   
   </div>
 </form>
-
 <!-- <sitereg-update-json-view
 [showRaw]="false" [raw]='parentForm.value' 
 [showJson]="true" [json]='json(parentForm.value)'></sitereg-update-json-view>  -->

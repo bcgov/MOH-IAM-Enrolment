@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import {
     cUpdateEnumeration,
@@ -10,6 +10,7 @@ import { RandomObjects, IDataForm } from '../../../common/i-dataform';
 import { environment } from 'src/environments/environment.prod';
 import { Address } from 'moh-common-lib';
 import { SpaEnvService } from '@shared/services/spa-env.service';
+import { getFullAddressText } from '../../../../msp-register/models/address-helpers';
 
 @Component({
     selector: 'sitereg-update-organization-edit',
@@ -29,7 +30,7 @@ export class MspDirectUpdateOrganizationEditComponent
     json: (formValues: any) => any;
 
     constructor(private fb: FormBuilder,
-                private spaEnvService: SpaEnvService) {
+                private spaEnvService: SpaEnvService, private cd: ChangeDetectorRef) {
         this.validFormControl = validMultiFormControl;
         this.json = getEditJSONofOrganization;
     }
@@ -38,15 +39,29 @@ export class MspDirectUpdateOrganizationEditComponent
         this.createOrUpdateForms();
         this.parentForm.valueChanges.subscribe((x) => {
             this.statusChanged.emit(this.parentForm);
-
             for (const controlName in this.parentForm.controls) {
                 if (controlName) {
-                    const control = this.parentForm.get(controlName);
+                    let control = this.parentForm.get(controlName);
                     if (control && control.status === 'INVALID') {
                         console.log(controlName + ' invalid');
                     }
                 }
             }
+        });
+    }
+
+    changeAddressSelected(address: Address) {
+        if (this.isAddressValidatorEnabled) {
+            address.addressLine2 = getFullAddressText(address);
+        }
+        this.parentForm.patchValue({
+            suite: address.unitNumber,
+          street: address.streetNumber,
+          streetName: address.streetName,
+          addressLine2: address.addressLine2,
+          city: address.city,
+          province: address.province,
+          postalCode: address.postal
         });
     }
 
@@ -92,17 +107,5 @@ export class MspDirectUpdateOrganizationEditComponent
     get isAddressValidatorEnabled(): boolean {
         const env = this.spaEnvService.getValues();
         return env && env.SPA_ENV_ENABLE_ADDRESS_VALIDATOR === 'true';
-    }
-
-    // TODO: Add unit tests to confirm form patch.
-    onAddressSelect(address: Address) {
-        this.formState.patchValue({
-            suite: address.unitNumber,
-            street: address.streetNumber,
-            streetName: address.streetName,
-            city: address.city,
-            province: address.province,
-            postalCode: address.postal
-        })
     }
 }
