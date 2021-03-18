@@ -20,7 +20,6 @@ import { MspRegistrationService } from '@msp-register/msp-registration.service';
 import { ConsentModalComponent, Address } from 'moh-common-lib';
 import { environment } from 'src/environments/environment.prod';
 import { SpaEnvService } from '@shared/services/spa-env.service';
-import { getFullAddressText } from '../../.././msp-register/models/address-helpers';
 
 @Component({
     selector: 'sitereg-msp-register-organization',
@@ -145,21 +144,25 @@ export class MspRegisterOrganizationComponent implements OnInit, AfterViewInit {
 
     // TODO: Add unit tests to confirm form patch.
     onAddressSelect(address: Address) {
-        if (this.isAddressValidatorEnabled) {
-            address.addressLine2 = getFullAddressText(address);
+        if (address){
+            if (address.unitNumber){
+                this.fg.patchValue({suite: address.unitNumber});
+            }
+            if (address.streetNumber){
+                this.fg.patchValue({street: address.streetNumber});
+            }
+            if (address.streetName){
+                this.fg.patchValue({streetName: address.streetName});
+            }
+            if (address.city){
+                this.fg.patchValue({city: address.city});
+            }
+            if (address.province){
+                this.fg.patchValue({province: address.province});
+            }
+            if (address.postal){
+                this.fg.patchValue({postalCode: address.postal.replace(' ', '')});
+            }
         }
-        if (address.postal != null){
-            this.fg.patchValue({
-                postalCode: address.postal.replace(' ', '')
-            });
-        }
-        this.fg.patchValue({
-            suite: address.unitNumber,
-            street: address.streetNumber,
-            streetName: address.streetName,
-            addressLine2: address.addressLine2,
-            city: address.city,
-            province: address.province,
-        });
     }
 }
