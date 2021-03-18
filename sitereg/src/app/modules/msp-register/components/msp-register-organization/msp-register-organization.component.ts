@@ -148,6 +148,11 @@ export class MspRegisterOrganizationComponent implements OnInit, AfterViewInit {
         if (this.isAddressValidatorEnabled) {
             address.addressLine2 = getFullAddressText(address);
         }
+        if (address.postal != null){
+            this.fg.patchValue({
+                postalCode: address.postal.replace(' ', '')
+            });
+        }
         this.fg.patchValue({
             suite: address.unitNumber,
             street: address.streetNumber,
@@ -155,7 +160,6 @@ export class MspRegisterOrganizationComponent implements OnInit, AfterViewInit {
             addressLine2: address.addressLine2,
             city: address.city,
             province: address.province,
-            postalCode: address.postal.replace(' ', '')
         });
     }
 }
