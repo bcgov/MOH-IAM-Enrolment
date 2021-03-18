@@ -10,7 +10,6 @@ import { RandomObjects, IDataForm } from '../../../common/i-dataform';
 import { environment } from 'src/environments/environment.prod';
 import { Address } from 'moh-common-lib';
 import { SpaEnvService } from '@shared/services/spa-env.service';
-import { getFullAddressText } from '../../../../msp-register/models/address-helpers';
 
 @Component({
     selector: 'sitereg-update-organization-edit',
@@ -95,17 +94,25 @@ export class MspDirectUpdateOrganizationEditComponent
     }
 
     onAddressSelect(address: Address) {
-        if (this.isAddressValidatorEnabled) {
-            address.addressLine2 = getFullAddressText(address);
+        if (address){
+            if (address.unitNumber){
+                this.formState.patchValue({suite: address.unitNumber});
+            }
+            if (address.streetNumber){
+                this.formState.patchValue({street: address.streetNumber});
+            }
+            if (address.streetName){
+                this.formState.patchValue({streetName: address.streetName});
+            }
+            if (address.city){
+                this.formState.patchValue({city: address.city});
+            }
+            if (address.province){
+                this.formState.patchValue({province: address.province});
+            }
+            if (address.postal){
+                this.formState.patchValue({postalCode: address.postal});
+            }
         }
-        this.formState.patchValue({
-            suite: address.unitNumber,
-            street: address.streetNumber,
-            streetName: address.streetName,
-            addressLine2: address.addressLine2,
-            city: address.city,
-            province: address.province,
-            postalCode: address.postal
-        })
     }
 }
