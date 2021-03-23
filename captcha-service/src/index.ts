@@ -442,26 +442,35 @@ var getAudio = async function (body: GetAudioRequestBody, req?: Request) {
       for (var i = 0; i < captchaCharArray.length; i++) {
         spokenCatpcha += captchaCharArray[i] + ", ";
       }
-      return getMp3DataUriFromText(spokenCatpcha, language).then(
-        (audioDataUri) => {
+      return getMp3DataUriFromText(spokenCatpcha, language)
+        .then((audioDataUri) => {
           return {
             audio: audioDataUri,
           };
-        }
-      );
+        })
+        .catch((e) => {
+          winston.error("Error getting audio(getMp3DataUriFromText):", + JSON.stringify(e));
+        });
     })
     .catch((e) => {
-      winston.error("Error getting audio:", e);
+      winston.error("Error getting audio(decrypt):", + JSON.stringify(e));
       return {
         error: "unknown",
       };
     });
 };
+exports.getAudio = getAudio;
 
 app.post("/captcha/audio", async function (req: Request, res: Response) {
-  return getAudio(req.body, req).then((ret) => {
-    res.send(ret);
-  });
+  getAudio(req.body, req)
+    .then((ret) => {
+      winston.debug("Audio sent successfully")
+      res.send(ret);
+    })
+    .catch((e) => {
+      winston.error("Error getting audio(app.post):", + JSON.stringify(e));
+      
+    });
 });
 
 ////////////////////////////////////////////////////////
@@ -565,7 +574,12 @@ function getMp3DataUriFromText(text: string, language: string = "en") {
 
     // Generate audio, Base64 encoded WAV in DataUri format including mime type header
     winston.debug("Generate speech as WAV in ArrayBuffer");
-    let audioArrayBuffer = await text2wav(text, { voice: language });
+    try{
+      let audioArrayBuffer = await text2wav(text, { voice: language });
+    }
+    catch (e){
+      winston.error("Error getting audio(text2wav):", + JSON.stringify(e));
+    }
 
     // convert to buffer
     winston.debug("Convert arraybuffer to buffer");
