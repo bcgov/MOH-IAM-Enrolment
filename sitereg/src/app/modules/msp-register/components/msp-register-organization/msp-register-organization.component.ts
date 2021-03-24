@@ -68,17 +68,6 @@ export class MspRegisterOrganizationComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         this.registrationService.setItemIncomplete();
-        // console.log(
-        //     `%c%o : %o`,
-        //     'color:green',
-        //     funcRemoveStrings(
-        //         ['MspRegister', 'Component'],
-        //         this.constructor.name
-        //     ).toUpperCase(),
-        //     this.globalConfigSvc.applicationId
-        // );
-        // this.registrationService.setItemIncomplete();
-
         this.fg.valueChanges.subscribe((obs) => {
             // converts postalcode in upper case
             const postalCode = this.fg.get('postalCode');
@@ -87,7 +76,6 @@ export class MspRegisterOrganizationComponent implements OnInit, AfterViewInit {
                     emitEvent: false,
                 });
             }
-
             this.schemaObject();
         });
     }
@@ -143,19 +131,9 @@ export class MspRegisterOrganizationComponent implements OnInit, AfterViewInit {
     schemaObject() {
         if (!this.globalConfigSvc.debug) return;
         const form = this.mspRegisterStateSvc.mspRegisterOrganizationForm;
-        // console.log('FormGroup: ', form);
         const middleWareObject = this.mspRegDataSvc.mapOrgInformation(
             form.value
         );
-        // console.log(
-        //     `%c middleware object <= %o\n\t%o`,
-        //     'color:lightgreen',
-        //     funcRemoveStrings(
-        //         ['MspRegister', 'Component'],
-        //         this.constructor.name
-        //     ),
-        //     middleWareObject
-        // );
         return middleWareObject;
     }
 
@@ -166,13 +144,25 @@ export class MspRegisterOrganizationComponent implements OnInit, AfterViewInit {
 
     // TODO: Add unit tests to confirm form patch.
     onAddressSelect(address: Address) {
-        this.fg.patchValue({
-            suite: address.unitNumber,
-            street: address.streetNumber,
-            streetName: address.streetName,
-            city: address.city,
-            province: address.province,
-            postalCode: address.postal.replace(' ', '')
-        });
+        if (address){
+            if (address.unitNumber){
+                this.fg.patchValue({suite: address.unitNumber});
+            }
+            if (address.streetNumber){
+                this.fg.patchValue({street: address.streetNumber});
+            }
+            if (address.streetName){
+                this.fg.patchValue({streetName: address.streetName});
+            }
+            if (address.city){
+                this.fg.patchValue({city: address.city});
+            }
+            if (address.province){
+                this.fg.patchValue({province: address.province});
+            }
+            if (address.postal){
+                this.fg.patchValue({postalCode: address.postal.replace(' ', '')});
+            }
+        }
     }
 }

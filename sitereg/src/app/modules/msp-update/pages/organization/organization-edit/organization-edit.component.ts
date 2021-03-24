@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import {
     cUpdateEnumeration,
@@ -29,7 +29,7 @@ export class MspDirectUpdateOrganizationEditComponent
     json: (formValues: any) => any;
 
     constructor(private fb: FormBuilder,
-                private spaEnvService: SpaEnvService) {
+                private spaEnvService: SpaEnvService, private cd: ChangeDetectorRef) {
         this.validFormControl = validMultiFormControl;
         this.json = getEditJSONofOrganization;
     }
@@ -38,10 +38,9 @@ export class MspDirectUpdateOrganizationEditComponent
         this.createOrUpdateForms();
         this.parentForm.valueChanges.subscribe((x) => {
             this.statusChanged.emit(this.parentForm);
-
             for (const controlName in this.parentForm.controls) {
                 if (controlName) {
-                    const control = this.parentForm.get(controlName);
+                    let control = this.parentForm.get(controlName);
                     if (control && control.status === 'INVALID') {
                         console.log(controlName + ' invalid');
                     }
@@ -94,15 +93,26 @@ export class MspDirectUpdateOrganizationEditComponent
         return env && env.SPA_ENV_ENABLE_ADDRESS_VALIDATOR === 'true';
     }
 
-    // TODO: Add unit tests to confirm form patch.
     onAddressSelect(address: Address) {
-        this.formState.patchValue({
-            suite: address.unitNumber,
-            street: address.streetNumber,
-            streetName: address.streetName,
-            city: address.city,
-            province: address.province,
-            postalCode: address.postal
-        })
+        if (address){
+            if (address.unitNumber){
+                this.formState.patchValue({suite: address.unitNumber});
+            }
+            if (address.streetNumber){
+                this.formState.patchValue({street: address.streetNumber});
+            }
+            if (address.streetName){
+                this.formState.patchValue({streetName: address.streetName});
+            }
+            if (address.city){
+                this.formState.patchValue({city: address.city});
+            }
+            if (address.province){
+                this.formState.patchValue({province: address.province});
+            }
+            if (address.postal){
+                this.formState.patchValue({postalCode: address.postal});
+            }
+        }
     }
 }
