@@ -572,18 +572,21 @@ function getMp3DataUriFromText(text: string, language: string = "en") {
       reader.pipe(encoder);
     });
 
-    // Generate audio, Base64 encoded WAV in DataUri format including mime type header
-    winston.debug("Generate speech as WAV in ArrayBuffer");
+    
     try{
+      // Generate audio, Base64 encoded WAV in DataUri format including mime type header
+      winston.debug("Generate speech as WAV in ArrayBuffer");
       let audioArrayBuffer = await text2wav(text, { voice: language });
+      
+      // convert to buffer
+      winston.debug("Convert arraybuffer to buffer");
+      var audioBuffer = arrayBufferToBuffer(audioArrayBuffer);
     }
     catch (e){
       winston.error("Error getting audio(text2wav):", + JSON.stringify(e));
     }
 
-    // convert to buffer
-    winston.debug("Convert arraybuffer to buffer");
-    var audioBuffer = arrayBufferToBuffer(audioArrayBuffer);
+
 
     // Convert ArrayBuffer to Streamable type for input to the encoder
     winston.debug("Streamify our buffer");
