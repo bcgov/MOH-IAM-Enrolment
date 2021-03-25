@@ -576,6 +576,8 @@ function getMp3DataUriFromText(text: string, language: string = "en") {
     try{
       // Generate audio, Base64 encoded WAV in DataUri format including mime type header
       winston.debug("Generate speech as WAV in ArrayBuffer");
+      winston.debug("text: " + text);
+      winston.debug("language: " + language);
       let audioArrayBuffer = await text2wav(text, { voice: language });
       
       // convert to buffer
