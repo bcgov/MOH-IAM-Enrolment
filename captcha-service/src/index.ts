@@ -573,32 +573,34 @@ function getMp3DataUriFromText(text: string, language: string = "en") {
     });
 
     
-    try{
+
       // Generate audio, Base64 encoded WAV in DataUri format including mime type header
       winston.debug("Generate speech as WAV in ArrayBuffer");
       winston.debug("text: " + text);
       winston.debug("language: " + language);
       winston.debug("text2wav: " + text2wav);
       winston.debug("text2wav output: " + text2wav(text, { voice: language }));
-      let audioArrayBuffer = await text2wav(text, { voice: language });
-      
-      // convert to buffer
-      winston.debug("Convert arraybuffer to buffer");
-      var audioBuffer = arrayBufferToBuffer(audioArrayBuffer);
-    }
-    catch (e){
-      winston.error("Error getting audio(text2wav):", + JSON.stringify(e));
-    }
+      let t2w = async (txt, lang) : Promise<Uint8Array> => {
+        return text2wav(txt, { voice: lang })
+      }
+      t2w(text, language)
+        .then((audioArrayBuffer) =>{
 
+          // convert to buffer
+          winston.debug("Convert arraybuffer to buffer");
+          var audioBuffer = arrayBufferToBuffer(audioArrayBuffer);      
 
+          // Convert ArrayBuffer to Streamable type for input to the encoder
+          winston.debug("Streamify our buffer");
+          var audioStream = streamifier.createReadStream(audioBuffer);
 
-    // Convert ArrayBuffer to Streamable type for input to the encoder
-    winston.debug("Streamify our buffer");
-    var audioStream = streamifier.createReadStream(audioBuffer);
-
-    // once all events setup we can the pipeline
-    winston.debug("Pipe audio stream to WAV reader");
-    audioStream.pipe(reader);
+          // once all events setup we can the pipeline
+          winston.debug("Pipe audio stream to WAV reader");
+          audioStream.pipe(reader);
+        })
+        .catch((e)=>{
+          winston.error("Error getting audio(text2wav):", + JSON.stringify(e));
+        })
   });
 }
 
