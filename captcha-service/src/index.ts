@@ -578,6 +578,8 @@ function getMp3DataUriFromText(text: string, language: string = "en") {
       winston.debug("Generate speech as WAV in ArrayBuffer");
       winston.debug("text: " + text);
       winston.debug("language: " + language);
+      winston.debug("text2wav: " + text2wav);
+      winston.debug("text2wav output: " + text2wav(text, { voice: language }));
       let audioArrayBuffer = await text2wav(text, { voice: language });
       
       // convert to buffer
