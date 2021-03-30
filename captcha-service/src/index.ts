@@ -224,15 +224,17 @@ let getCaptcha = async function (
           captcha: captcha.data,
           validation: validation,
         };
-        const { rss, heapTotal, external } = process.memoryUsage();
-        winston.debug(
-          "******** rss " +
-            numeral(rss).format(`0.0 ib`) +
-            ` heapTotal ` +
-            numeral(heapTotal).format(`0.0 ib`) +
-            ` external ` +
-            numeral(external).format(`0.0 ib`)
-        );
+        //****uncomment to output memory usage info ****/
+        //const { rss, heapTotal, external } = process.memoryUsage();
+        // winston.debug(
+        //   "******** rss " +
+        //     numeral(rss).format(`0.0 ib`) +
+        //     ` heapTotal ` +
+        //     numeral(heapTotal).format(`0.0 ib`) +
+        //     ` external ` +
+        //     numeral(external).format(`0.0 ib`)
+        // );
+        //****uncomment to output memory usage info ****/
         return responseBody;
       }
     })
@@ -576,10 +578,10 @@ function getMp3DataUriFromText(text: string, language: string = "en") {
 
       // Generate audio, Base64 encoded WAV in DataUri format including mime type header
       winston.debug("Generate speech as WAV in ArrayBuffer");
-      winston.debug("text: " + text);
-      winston.debug("language: " + language);
-      winston.debug("text2wav: " + text2wav);
-      winston.debug("text2wav output: " + text2wav(text, { voice: language }));
+      
+      //t2w function created as a workaround to eliminate await statement
+      //without this workaround typescript fails due to incorrect return type
+      //from text2wav package
       let t2w = async (txt, lang) : Promise<Uint8Array> => {
         return text2wav(txt, { voice: lang })
       }
