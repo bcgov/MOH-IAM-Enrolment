@@ -583,6 +583,7 @@ function getMp3DataUriFromText(text: string, language: string = "en") {
       //without this workaround typescript fails due to incorrect return type
       //from text2wav package
       let t2w = async (txt, lang) : Promise<Uint8Array> => {
+	winston.debug("Before text2wav");
         return text2wav(txt, { voice: lang })
       }
       t2w(text, language)
