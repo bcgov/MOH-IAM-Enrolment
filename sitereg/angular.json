@@ -150,5 +150,8 @@
       }
     }
   },
-  "defaultProject": "moh-sitereg"
+  "defaultProject": "moh-sitereg",
+  "cli": {
+    "analytics": false
+  }
 }
