@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MspRegisterAuthorizeComponent } from './msp-register-authorize.component';
 import { SharedModule } from '@shared/shared.module';
@@ -10,7 +10,7 @@ describe('MspRegisterAuthorizeComponent', () => {
     let component: MspRegisterAuthorizeComponent;
     let fixture: ComponentFixture<MspRegisterAuthorizeComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [
                 MspRegisterAuthorizeComponent,

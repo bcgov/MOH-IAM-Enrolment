@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MspRegisterGroupComponent } from './msp-register-group.component';
 import { SharedModule } from '@shared/shared.module';
@@ -8,7 +8,7 @@ describe('MspRegisterGroupNumbersComponent', () => {
     let component: MspRegisterGroupComponent;
     let fixture: ComponentFixture<MspRegisterGroupComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [MspRegisterGroupComponent],
             imports: [SharedModule, RouterTestingModule],

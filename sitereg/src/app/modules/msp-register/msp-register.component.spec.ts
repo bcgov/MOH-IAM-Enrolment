@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MspRegisterComponent } from './msp-register.component';
 import { SharedCoreModule } from 'moh-common-lib';
@@ -8,7 +8,7 @@ describe('MspRegisterComponent', () => {
     let component: MspRegisterComponent;
     let fixture: ComponentFixture<MspRegisterComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             imports: [SharedCoreModule, RouterTestingModule],
             declarations: [MspRegisterComponent],
