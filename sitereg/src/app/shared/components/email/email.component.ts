@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, Optional, Self } from '@angular/core';
-import { Base } from 'moh-common-lib';
+import { Base } from 'moh-common-lib-angular';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 @Component({

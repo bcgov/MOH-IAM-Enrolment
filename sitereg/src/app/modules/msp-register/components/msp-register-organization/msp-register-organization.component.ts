@@ -17,7 +17,7 @@ import {
     MSP_REGISTER_ROUTES,
 } from '@msp-register/constants';
 import { MspRegistrationService } from '@msp-register/msp-registration.service';
-import { ConsentModalComponent, Address } from 'moh-common-lib';
+import { ConsentModalComponent, Address } from 'moh-common-lib-angular';
 import { environment } from 'src/environments/environment.prod';
 import { SpaEnvService } from '@shared/services/spa-env.service';
 

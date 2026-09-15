@@ -29,7 +29,7 @@ import {
 } from '@msp-register/constants';
 import { MspRegistrationService } from '@msp-register/msp-registration.service';
 import { environment } from 'src/environments/environment.prod';
-// import {  } from 'moh-common-lib/captcha';
+// import {  } from 'moh-common-lib-angular/captcha';
 
 export type AccessType = 'admin' | 'user';
 

@@ -36,8 +36,7 @@
               "includePaths": [
                 "src/app/styles"
               ]
-            },
-            "es5BrowserSupport": true
+            }
           },
           "configurations": {
             "production": {
@@ -69,20 +68,20 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "moh-sitereg:build",
+            "buildTarget": "moh-sitereg:build",
             "port" : 4209,
             "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "moh-sitereg:build:production"
+              "buildTarget": "moh-sitereg:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "moh-sitereg:build"
+            "buildTarget": "moh-sitereg:build"
           }
         },
         "test": {
@@ -150,7 +149,6 @@
       }
     }
   },
-  "defaultProject": "moh-sitereg",
   "cli": {
     "analytics": false
   }

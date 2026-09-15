@@ -7,7 +7,7 @@ import { LoggerService } from '@shared/services/logger.service';
 import { GlobalConfigService } from '@shared/services/global-config.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { UpdateStateService } from '../../../services/update.state.service';
-import { AbstractForm } from 'moh-common-lib';
+import { AbstractForm } from 'moh-common-lib-angular';
 import {
     cUpdateValidators,
     cAdministeringForUpdate,

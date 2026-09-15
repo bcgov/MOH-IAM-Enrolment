@@ -13,7 +13,7 @@ import { MspRegisterUsersComponent } from './components/msp-register-users/msp-r
 import { MspRegisterAuthorizeAccessComponent } from './components/msp-register-authorize-access/msp-register-authorize-access.component';
 import { MspRegisterUserMspComponent } from './components/core/msp-register-user-msp/msp-register-user-msp.component';
 import { MspRegisterUserComponent } from './components/core/msp-register-user/msp-register-user.component';
-import { CaptchaModule } from 'moh-common-lib/captcha';
+import { CaptchaModule } from 'moh-common-lib-angular/captcha';
 import { MspRegisterAutofillComponent } from './components/autofill/autofill.component';
 import { MspRegisterConfirmationComponent } from './components/msp-register-confirmation/msp-register-confirmation.component';
 import { MspRegisterReviewComponent } from './components/msp-register-review/msp-register-review.component';

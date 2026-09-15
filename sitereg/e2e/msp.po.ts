@@ -1,6 +1,6 @@
 
 import { browser, element, by, protractor } from 'protractor';
-import { AbstractTestPage } from 'moh-common-lib/e2e';
+import { AbstractTestPage } from 'moh-common-lib-angular/e2e';
 
 export class BaseMSPTestPage extends AbstractTestPage {
 
