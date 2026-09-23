@@ -7,6 +7,7 @@ import {
 } from '@msp-register/models/validator-helpers';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-register-user-msp',
     templateUrl: './msp-register-user-msp.component.html',
     styleUrls: ['./msp-register-user-msp.component.scss'],

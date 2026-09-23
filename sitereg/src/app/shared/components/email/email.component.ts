@@ -3,6 +3,7 @@ import { Base } from 'moh-common-lib-angular';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 @Component({
+  standalone: false,
   selector: 'sitereg-msp-email',
   templateUrl: './email.component.html',
   styleUrls: ['./email.component.scss']

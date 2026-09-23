@@ -15,6 +15,7 @@ import { MspDirectUpdateAccessAdministratorAddComponent } from '../access-admin-
 import { MspDirectUpdateAccessAdministratorEditComponent } from '../access-admin-edit/access-admin-edit.component';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-update-access-admin',
     templateUrl: './access-admin.component.html',
     styleUrls: ['./access-admin.component.scss'],

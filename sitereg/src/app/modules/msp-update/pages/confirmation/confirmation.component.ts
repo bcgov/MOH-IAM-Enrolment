@@ -4,9 +4,10 @@ import { GlobalConfigService } from '@shared/services/global-config.service';
 import { LoggerService } from '@shared/services/logger.service';
 import { MSP_REGISTER_ROUTES } from '@msp-register/constants';
 import { UpdateStateService } from '../../services/update.state.service';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-update-confirmation',
     templateUrl: './confirmation.component.html',
     styleUrls: ['./confirmation.component.scss'],

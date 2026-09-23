@@ -15,6 +15,7 @@ import { MspUpdateApiService } from '../../services/api.service';
 import { jsonPayLoadApplication } from './json-payload';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-update-submit',
     templateUrl: './submit.component.html',
     styleUrls: ['./submit.component.scss'],

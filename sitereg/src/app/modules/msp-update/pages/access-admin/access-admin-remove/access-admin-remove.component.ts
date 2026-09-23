@@ -7,10 +7,11 @@ import {
     formControlValidity,
 } from '../../../common/update-validators';
 import { getRemoveJsonOfAccessAdministrator } from '../shared/access-admin-json-map';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../../../environments/environment';
 import { IDataForm, RandomObjects } from '../../../common/i-dataform';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-update-access-admin-remove',
     templateUrl: './access-admin-remove.component.html',
     styleUrls: ['./access-admin-remove.component.scss'],

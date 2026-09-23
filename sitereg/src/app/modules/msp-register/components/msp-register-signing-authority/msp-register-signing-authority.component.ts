@@ -13,9 +13,10 @@ import {
     MSP_REGISTER_ROUTES,
 } from '@msp-register/constants';
 import { MspRegistrationService } from '@msp-register/msp-registration.service';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-register-signing-authority',
     templateUrl: './msp-register-signing-authority.component.html',
     styleUrls: ['./msp-register-signing-authority.component.scss'],

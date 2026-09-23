@@ -18,10 +18,11 @@ import {
 } from '@msp-register/constants';
 import { MspRegistrationService } from '@msp-register/msp-registration.service';
 import { ConsentModalComponent, Address } from 'moh-common-lib-angular';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../../environments/environment';
 import { SpaEnvService } from '@shared/services/spa-env.service';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-register-organization',
     templateUrl: './msp-register-organization.component.html',
     styleUrls: ['./msp-register-organization.component.scss'],

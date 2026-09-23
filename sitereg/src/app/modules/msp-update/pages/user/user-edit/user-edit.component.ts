@@ -18,10 +18,11 @@ import {
 } from '../../../common/update-validators';
 
 import { getEditJsonOfMspUser } from '../shared/user-shared-json-map';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../../../environments/environment';
 import { IDataForm, RandomObjects } from '../../../common/i-dataform';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-update-user-edit',
     templateUrl: './user-edit.component.html',
     styleUrls: ['./user-edit.component.scss'],

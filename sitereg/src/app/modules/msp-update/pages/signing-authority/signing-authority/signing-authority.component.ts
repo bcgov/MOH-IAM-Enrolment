@@ -15,6 +15,7 @@ import { MspDirectUpdateSigningAuthorityAddComponent } from '../signing-authorit
 import { MspDirectUpdateSigningAuthorityEditComponent } from '../signing-authority-edit/signing-authority-edit.component';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-update-signing-authority',
     templateUrl: './signing-authority.component.html',
     styleUrls: ['./signing-authority.component.scss'],

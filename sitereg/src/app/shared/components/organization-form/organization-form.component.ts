@@ -4,6 +4,7 @@ import { cAdministeringFor, cAdministeringForUpdate } from '@msp-register/models
 import { validFormControl } from 'src/app/modules/msp-update/common/validators';
 
 @Component({
+  standalone: false,
   selector: 'sitereg-organization-form',
   templateUrl: './organization-form.component.html',
   styleUrls: ['./organization-form.component.scss']

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './core/components/home-page/home-page.component';
-import { MspRegisterComponent } from './modules/msp-register/msp-register.component';
 
 const routes: Routes = [
     {
@@ -10,18 +9,18 @@ const routes: Routes = [
     },
     {
         path: 'register',
-        loadChildren:
-            './modules/msp-register/msp-register.module#MspRegisterModule',
+        loadChildren: () =>
+            import('./modules/msp-register/msp-register.module').then(m => m.MspRegisterModule)
     },
     {
         path: 'update',
-        loadChildren:
-            './modules/msp-update/update.module#MspDirectUpdateModule',
+        loadChildren: () =>
+            import('./modules/msp-update/update.module').then(m => m.MspDirectUpdateModule)
     },
     {
         path: 'maintenance',
-        loadChildren:
-            './modules/splash-page/splash-page.module#SplashPageModule',
+        loadChildren: () =>
+            import('./modules/splash-page/splash-page.module').then(m => m.SplashPageModule)
     },
     {
         path: '**',

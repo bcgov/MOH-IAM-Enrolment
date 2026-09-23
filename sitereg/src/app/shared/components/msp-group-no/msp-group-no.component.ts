@@ -3,6 +3,7 @@ import { Base } from 'moh-common-lib-angular';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 @Component({
+  standalone: false,
   selector: 'sitereg-msp-group-no',
   templateUrl: './msp-group-no.component.html',
   styleUrls: ['./msp-group-no.component.scss']

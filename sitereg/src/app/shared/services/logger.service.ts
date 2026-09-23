@@ -2,7 +2,6 @@ import { CommonLogger, CommonLogMessage } from 'moh-common-lib-angular';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GlobalConfigService } from './global-config.service';
-import { environment } from 'src/environments/environment.prod';
 
 export interface LogMessage {
     event: string;

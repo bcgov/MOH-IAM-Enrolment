@@ -15,6 +15,7 @@ import {
 import { MspDirectUpdateOrganizationEditComponent } from '../organization-edit/organization-edit.component';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-update-organization',
     templateUrl: './organization.component.html',
     styleUrls: ['./organization.component.scss'],

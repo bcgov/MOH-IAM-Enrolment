@@ -18,10 +18,11 @@ import {
 } from '../../../common/update-validators';
 
 import { getEditJsonOfAccessAdministrator } from '../shared/access-admin-json-map';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../../../environments/environment';
 import { RandomObjects, IDataForm } from '../../../common/i-dataform';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-update-access-admin-edit',
     templateUrl: './access-admin-edit.component.html',
     styleUrls: ['./access-admin-edit.component.scss'],

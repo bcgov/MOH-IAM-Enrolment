@@ -10,6 +10,7 @@ import { funcRemoveStrings } from '@msp-register/constants';
 import { jsonPayLoadApplication } from '../submit/json-payload';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-update-review',
     templateUrl: './review.component.html',
     styleUrls: ['./review.component.scss'],

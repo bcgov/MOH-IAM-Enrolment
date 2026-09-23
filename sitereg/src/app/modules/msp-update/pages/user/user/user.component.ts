@@ -15,6 +15,7 @@ import { MspDirectUpdateUserAddComponent } from '../user-add/user-add.component'
 import { MspDirectUpdateUserEditComponent } from '../user-edit/user-edit.component';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-update-user',
     templateUrl: './user.component.html',
     styleUrls: ['./user.component.scss'],

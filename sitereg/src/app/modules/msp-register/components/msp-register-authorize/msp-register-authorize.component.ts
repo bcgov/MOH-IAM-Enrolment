@@ -28,12 +28,13 @@ import {
     MSP_REGISTER_ROUTES,
 } from '@msp-register/constants';
 import { MspRegistrationService } from '@msp-register/msp-registration.service';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../../environments/environment';
 // import {  } from 'moh-common-lib-angular/captcha';
 
 export type AccessType = 'admin' | 'user';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-register-authorize',
     templateUrl: './msp-register-authorize.component.html',
     styleUrls: ['./msp-register-authorize.component.scss'],
@@ -60,6 +61,7 @@ export class MspRegisterAuthorizeComponent implements OnInit {
     showCaptcha = false;
     validCaptch = false;
     isProcessing = false;
+    name: string;
 
     public get signingAuthority(): IMspSigningAuthority {
         return this.mspRegisterStateSvc.signingAuthority;
@@ -89,19 +91,9 @@ export class MspRegisterAuthorizeComponent implements OnInit {
     }
 
     ngOnInit() {
-        // console.log(
-        //     `%c%o : %o`,
-        //     'color:green',
-        //     funcRemoveStrings(
-        //         ['MspRegister', 'Component'],
-        //         this.constructor.name
-        //     ).toUpperCase(),
-        //     this.globalConfigSvc.applicationId
-        // );
         this.registrationService.setItemIncomplete();
-
         this.fg = this.mspRegisterStateSvc.mspRegisterAuthorizeForm;
-        this.mspRegDataSvc.updateSigningAuthorityName(name);
+        this.mspRegDataSvc.updateSigningAuthorityName(this.name);
         this.adminFgs = this.mspRegisterStateSvc.mspRegisterAccessAdminsForm;
         this.userFgs = this.mspRegisterStateSvc.mspRegisterUsersForm;
 
@@ -118,26 +110,8 @@ export class MspRegisterAuthorizeComponent implements OnInit {
             this.globalConfigSvc.applicationId
             }`
         );
-
         this.registrationService.setItemComplete();
-
-        // REMOVEME debug-only
-        // this.debugOnly();
-
         const middleWareObject = this.registerationObject();
-
-        // console.log(
-        //     `%c middleware object <= %o\n\t%o`,
-        //     'color:lightgreen',
-        //     funcRemoveStrings(
-        //         ['MspRegister', 'Component'],
-        //         this.constructor.name
-        //     ),
-        //     middleWareObject
-        // );
-
-        // this.copyJsonSchema(middleWareObject);
-
         this.mspRegDataSvc.requestFinalStatus = null;
         const requestStatus = {
             referenceId: null,

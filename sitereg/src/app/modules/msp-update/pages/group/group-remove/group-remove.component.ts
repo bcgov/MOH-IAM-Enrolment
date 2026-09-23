@@ -7,10 +7,11 @@ import {
     isValidOptionalField,
 } from '../../../common/validators';
 import { getRemoveJsonOfMspGroup } from '../shared/group-shared-json-map';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../../../environments/environment';
 import { IDataForm, RandomObjects } from '../../../common/i-dataform';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-update-group-remove',
     templateUrl: './group-remove.component.html',
     styleUrls: ['./group-remove.component.scss'],

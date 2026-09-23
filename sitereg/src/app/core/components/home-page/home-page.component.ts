@@ -5,6 +5,7 @@ import { SplashPageService } from 'src/app/modules/splash-page/splash-page.servi
 import { Observable, BehaviorSubject, interval, timer } from 'rxjs';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-home-page',
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.scss'],

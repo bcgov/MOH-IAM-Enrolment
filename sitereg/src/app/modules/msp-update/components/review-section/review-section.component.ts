@@ -6,6 +6,7 @@ export interface ReviewItemInterface {
 }
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-review-section',
     templateUrl: './review-section.component.html',
     styleUrls: ['./review-section.component.scss'],

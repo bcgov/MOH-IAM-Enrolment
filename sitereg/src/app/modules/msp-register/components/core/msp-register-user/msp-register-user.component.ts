@@ -12,6 +12,7 @@ import {
 } from '@msp-register/models/core/core-types';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-register-user',
     templateUrl: './msp-register-user.component.html',
     styleUrls: ['./msp-register-user.component.scss'],

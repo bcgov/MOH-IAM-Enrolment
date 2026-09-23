@@ -14,9 +14,10 @@ import {
     MSP_REGISTER_ROUTES,
 } from '@msp-register/constants';
 import { MspRegistrationService } from '@msp-register/msp-registration.service';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-register-access-admins',
     templateUrl: './msp-register-access-admins.component.html',
     styleUrls: ['./msp-register-access-admins.component.scss'],
@@ -28,8 +29,7 @@ export class MspRegisterAccessAdminsComponent implements OnInit {
     }
     fgs: FormGroup[];
     validFormControl: () => boolean;
-    validFormGroup = this.mspRegisterStateSvc
-        .MspRegisterAccessAdminisContinueValid;
+    validFormGroup: (fgs: FormGroup[]) => boolean;
     administeringFor: BehaviorSubject<string[]> = new BehaviorSubject<string[]>(
         cAdministeringFor
     );
@@ -44,24 +44,10 @@ export class MspRegisterAccessAdminsComponent implements OnInit {
     ) {
         this.updateFormGroups();
         this.validFormControl = validMultiFormControl.bind(this);
-
-        // // debug only
-        // this.fgs.forEach((fg) => {
-        //     fg.valueChanges.subscribe((obs) => console.log(fg));
-        // });
     }
 
     ngOnInit() {
-        // console.log(
-        //     `%c%o : %o`,
-        //     'color:green',
-        //     funcRemoveStrings(
-        //         ['MspRegister', 'Component'],
-        //         this.constructor.name
-        //     ).toUpperCase(),
-        //     this.globalConfigSvc.applicationId
-        // );
-
+        this.validFormGroup = this.mspRegisterStateSvc.MspRegisterAccessAdminisContinueValid;
         this.registrationService.setItemIncomplete();
     }
 

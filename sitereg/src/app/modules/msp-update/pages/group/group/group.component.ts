@@ -14,6 +14,7 @@ import { MspDirectUpdateGroupAddComponent } from '../group-add/group-add.compone
 import { MspDirectUpdateGroupEditComponent } from '../group-edit/group-edit.component';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-update-group',
     templateUrl: './group.component.html',
     styleUrls: ['./group.component.scss'],

@@ -8,6 +8,7 @@ import { ROUTES_UPDATE } from '../../../routing/routes.constants';
 import { UpdateStateService } from '../../../services/update.state.service';
 import * as interfaceObjects from '../shared/i-requestor';
 @Component({
+    standalone: false,
     selector: 'sitereg-update-requestor-review',
     templateUrl: './requestor-review.component.html',
     styleUrls: ['./requestor-review.component.scss'],

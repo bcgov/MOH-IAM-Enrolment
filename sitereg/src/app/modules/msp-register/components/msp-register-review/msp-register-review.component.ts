@@ -14,6 +14,7 @@ import {
 import { MspRegistrationService } from '@msp-register/msp-registration.service';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-register-review',
     templateUrl: './msp-register-review.component.html',
     styleUrls: ['./msp-register-review.component.scss'],

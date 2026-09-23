@@ -7,6 +7,7 @@ import { funcRemoveStrings } from './constants';
 import { MspRegistrationService } from './msp-registration.service';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-register',
     templateUrl: './msp-register.component.html',
     styleUrls: ['./msp-register.component.scss'],

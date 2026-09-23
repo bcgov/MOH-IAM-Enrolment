@@ -7,7 +7,6 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MspRegistrationService } from './msp-registration.service';
-import { environment } from './../../../environments/environment';
 
 @Injectable({
     providedIn: 'root',

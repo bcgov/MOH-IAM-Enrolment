@@ -18,9 +18,10 @@ import {
 
 import { getJSONofRequestor } from '../shared/requestor-json-map';
 import { IDataForm, RandomObjects } from '../../../common/i-dataform';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../../../environments/environment';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-update-requestor',
     templateUrl: './requestor.component.html',
     styleUrls: ['./requestor.component.scss'],

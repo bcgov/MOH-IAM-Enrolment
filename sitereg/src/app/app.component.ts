@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { SplashPageService } from './modules/splash-page/splash-page.service';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../environments/environment';
 import * as version from '../version.GENERATED';
 import { GlobalConfigService } from '@shared/services/global-config.service';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],

@@ -8,6 +8,7 @@ import { funcRemoveStrings } from '@msp-register/constants';
 import { LoggerService } from '@shared/services/logger.service';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-update',
     templateUrl: './update-container.component.html',
     styleUrls: ['./update-container.component.scss'],
