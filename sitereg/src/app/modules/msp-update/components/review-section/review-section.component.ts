@@ -12,8 +12,7 @@ export interface ReviewItemInterface {
     styleUrls: ['./review-section.component.scss'],
 })
 export class ReviewSectionComponent {
-    // tslint:disable-next-line:no-inferrable-types
-    @Input() sectionTitle: string = '';
+       @Input() sectionTitle = '';
     @Input() reviewItems: ReviewItemInterface[] = [];
 
     @Output() clickEvent: EventEmitter<any> = new EventEmitter<any>();

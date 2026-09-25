@@ -58,21 +58,18 @@ export interface IOrgInformationDef {
 
 //#region signing_authority_def
 
-// tslint:disable-next-line: no-empty-interface
 export interface ISigningAuthorityDef extends ICoreUserMspDef { }
 
 //#endregion
 
 //#region Access Admin
 
-// tslint:disable-next-line: no-empty-interface
 export interface IAccessAdministratorDef extends ICoreUserMspDef { }
 
 //#endregion
 
 //#region Users
 
-// tslint:disable-next-line: no-empty-interface
 export interface IUserDef extends ICoreUserDef { }
 
 //#endregion

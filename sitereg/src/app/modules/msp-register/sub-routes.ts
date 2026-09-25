@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { MspRegisterOrganizationComponent } from '../msp-register/components/msp-register-organization/msp-register-organization.component';
-// tslint:disable-next-line: max-line-length
 import { MspRegisterSigningAuthorityComponent } from '../msp-register/components/msp-register-signing-authority/msp-register-signing-authority.component';
 import { MspRegisterAccessAdminsComponent } from '../msp-register/components/msp-register-access-admins/msp-register-access-admins.component';
 import { MspRegisterUsersComponent } from '../msp-register/components/msp-register-users/msp-register-users.component';

@@ -30,14 +30,11 @@ export class MspGroupNoComponent extends Base implements ControlValueAccessor {
   @Output() blurEvent: EventEmitter<any> = new EventEmitter<any>();
 
 
-  // tslint:disable-next-line:no-inferrable-types
-  group: string = '';
-  grpCharSet: RegExp = RegExp( '^[0-9]{7}$' );
+   group = '';
+  grpCharSet = RegExp( '^[0-9]{7}$' );
 
-  // tslint:disable-next-line:variable-name
-  _onChange = (_: any) => {};
-  // tslint:disable-next-line:variable-name
-  _onTouched = (_: any) => {};
+   _onChange = (_: any) => {};
+   _onTouched = (_: any) => {};
 
   constructor( @Optional() @Self() public controlDir: NgControl ) {
     super();

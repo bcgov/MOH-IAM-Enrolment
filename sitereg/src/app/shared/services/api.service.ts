@@ -26,14 +26,11 @@ export class MspRegisterApiService extends AbstractHttpService {
      *  Default hardcoded header values.  Note: Authentication headers are added
      *  at runtime in the httpOptions() method.
      */
-    // tslint:disable-next-line: variable-name
-    protected _headers: HttpHeaders = new HttpHeaders({
+       protected _headers: HttpHeaders = new HttpHeaders({
         'Cache-Control': 'private',
     });
-    // tslint:disable-next-line: variable-name
-    private _token: string;
-    // tslint:disable-next-line: variable-name
-    private _clientName = 'sitereg';
+       private _token: string;
+       private _clientName = 'sitereg';
     private apiURL: string;
 
     constructor(

@@ -12,7 +12,7 @@ import { MspUpdateReviewComponent } from '../pages/review/review.component';
 import { MspDirectUpdateSigningAuthorityComponent } from '../pages/signing-authority/signing-authority/signing-authority.component';
 import { MspDirectUpdateConfirmationComponent } from '../pages/confirmation/confirmation.component';
 
-let defaultRoutes: Routes = [
+const defaultRoutes: Routes = [
     {
         path: '',
         redirectTo: ROUTES_UPDATE.REQUESTOR.path,

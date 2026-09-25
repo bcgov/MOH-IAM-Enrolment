@@ -132,8 +132,7 @@ export class MspDirectUpdateAccessAdministratorComponent implements OnInit {
 
     //#region Edit
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateAccessAdministratorEditComponent)
+       @ViewChild(MspDirectUpdateAccessAdministratorEditComponent)
     formEdit: MspDirectUpdateAccessAdministratorEditComponent;
 
     get formEditState(): FormGroup {
@@ -154,8 +153,7 @@ export class MspDirectUpdateAccessAdministratorComponent implements OnInit {
 
     //#region Add
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateAccessAdministratorAddComponent)
+       @ViewChild(MspDirectUpdateAccessAdministratorAddComponent)
     formAdd: MspDirectUpdateAccessAdministratorAddComponent;
 
     get formAddState(): FormGroup {
@@ -176,8 +174,7 @@ export class MspDirectUpdateAccessAdministratorComponent implements OnInit {
 
     //#region REMOVE
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateAccessAdministratorRemoveComponent)
+       @ViewChild(MspDirectUpdateAccessAdministratorRemoveComponent)
     formRemove: MspDirectUpdateAccessAdministratorRemoveComponent;
 
     get formRemoveState(): FormGroup {

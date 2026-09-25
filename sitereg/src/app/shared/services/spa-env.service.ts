@@ -50,13 +50,11 @@ export type SpaEnvResponse = typeof serverEnvs;
     providedIn: 'root',
 })
 export class SpaEnvService extends AbstractHttpService {
-    // tslint:disable-next-line: variable-name
-    protected _headers: HttpHeaders = new HttpHeaders({
+       protected _headers: HttpHeaders = new HttpHeaders({
         SPA_ENV_NAME: stringifiedEnvs,
     });
 
-    // tslint:disable-next-line: variable-name
-    private _values = new BehaviorSubject<SpaEnvResponse>(null);
+       private _values = new BehaviorSubject<SpaEnvResponse>(null);
     /** The values retrieved from the SpaEnv server. */
     public values: Observable<
         SpaEnvResponse

@@ -41,7 +41,7 @@ export class MspDirectUpdateOrganizationEditComponent
             this.statusChanged.emit(this.parentForm);
             for (const controlName in this.parentForm.controls) {
                 if (controlName) {
-                    let control = this.parentForm.get(controlName);
+                    const control = this.parentForm.get(controlName);
                     if (control && control.status === 'INVALID') {
                         console.log(controlName + ' invalid');
                     }

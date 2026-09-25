@@ -599,7 +599,7 @@ function transform(valc: any, typc: any, getProps: any): any {
     };
 
     function transformObject(
-        props: { [k: string]: any },
+        props: Record<string, any>,
         additional: any,
         val: any
     ): any {

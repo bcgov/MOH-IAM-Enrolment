@@ -22,8 +22,7 @@ import { jsonPayLoadApplication } from './json-payload';
 })
 export class MspDirectUpdateSubmitComponent implements OnInit {
     requestUUID: string;
-    // tslint:disable-next-line:variable-name
-    private _hasToken = false;
+       private _hasToken = false;
     // public isProcessing = false;
     date: Date = new Date();
 

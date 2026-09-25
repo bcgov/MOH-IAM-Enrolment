@@ -161,8 +161,7 @@ export class MspDirectUpdateSigningAuthorityComponent implements OnInit {
 
     //#region Edit
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateSigningAuthorityEditComponent)
+       @ViewChild(MspDirectUpdateSigningAuthorityEditComponent)
     formEdit: MspDirectUpdateSigningAuthorityEditComponent;
 
     get formEditState(): FormGroup {
@@ -184,8 +183,7 @@ export class MspDirectUpdateSigningAuthorityComponent implements OnInit {
 
     //#region Add
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateSigningAuthorityAddComponent)
+       @ViewChild(MspDirectUpdateSigningAuthorityAddComponent)
     formAdd: MspDirectUpdateSigningAuthorityAddComponent;
 
     get formAddState(): FormGroup {
@@ -207,8 +205,7 @@ export class MspDirectUpdateSigningAuthorityComponent implements OnInit {
 
     //#region REMOVE
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateSigningAuthorityRemoveComponent)
+       @ViewChild(MspDirectUpdateSigningAuthorityRemoveComponent)
     formRemove: MspDirectUpdateSigningAuthorityRemoveComponent;
 
     get formRemoveState(): FormGroup {

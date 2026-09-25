@@ -29,10 +29,8 @@ import { isValidOptionalField, trimText } from '../../msp-register/models/valida
 
 const apiUrl = environment.baseAPIUrl;
 
-/* tslint:disable */
 const text =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.pronin sapien nunc accuan eget.';
-/* tslint:enable */
 
 @Injectable({
     providedIn: 'root',
@@ -40,16 +38,16 @@ const text =
 export class MspRegisterDataService {
     public requestFinalStatus: any;
 
-    private agreementNumber$: BehaviorSubject<string> = new BehaviorSubject(
+    private agreementNumber$ = new BehaviorSubject<string>(
         '12345678'
     );
-    private signingAuthorityName$: BehaviorSubject<
+    private signingAuthorityName$ = new BehaviorSubject<
         string
-    > = new BehaviorSubject('user');
-    private agreementText$: BehaviorSubject<string> = new BehaviorSubject(text);
-    private signingAuthorityAddress$: BehaviorSubject<
+    >('user');
+    private agreementText$ = new BehaviorSubject<string>(text);
+    private signingAuthorityAddress$ = new BehaviorSubject<
         string
-    > = new BehaviorSubject('Here');
+    >('Here');
 
     get agreementNumber() {
         return this.agreementNumber$.asObservable();
@@ -87,10 +85,8 @@ export class MspRegisterDataService {
     }
 
     mapContractingOut(
-        // tslint:disable-next-line: variable-name
-        contracting_third_party: string,
-        // tslint:disable-next-line: variable-name
-        third_party_org_num?: string
+               contracting_third_party: string,
+               third_party_org_num?: string
     ): IContractingOut {
         third_party_org_num = third_party_org_num ? third_party_org_num : '';
 
@@ -249,7 +245,7 @@ export class MspRegisterDataService {
         );
     }
 
-    deepCopy(obj: any, prefixProperty: string = ''): any {
+    deepCopy(obj: any, prefixProperty = ''): any {
         const newObject = {};
         Object.keys(obj).forEach((k) => {
             const newPropertyName = `${prefixProperty}${k}`;
@@ -274,8 +270,7 @@ export class MspRegisterDataService {
                     : funcRandomNumber7Digit()
                 : '';
 
-        // tslint:disable-next-line: variable-name
-        const contracting_out =
+               const contracting_out =
             (obj.thirdParty as boolean) === true ?
                 this.mapContractingOut(
                     this.mapYesNoDef(obj.thirdParty as boolean),

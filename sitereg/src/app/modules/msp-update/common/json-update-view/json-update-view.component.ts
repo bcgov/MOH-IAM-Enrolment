@@ -10,8 +10,8 @@ import { copyToClipBoard } from '../update-validators';
 export class JsonUpdateViewComponent implements OnInit {
     show = true;
 
-    @Input() showRaw: boolean = true;
-    @Input() showJson: boolean = true;
+    @Input() showRaw = true;
+    @Input() showJson = true;
 
     @Input() raw: any;
     @Input() json: any;

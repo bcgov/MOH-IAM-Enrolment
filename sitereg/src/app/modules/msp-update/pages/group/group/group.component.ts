@@ -101,8 +101,7 @@ export class MspDirectUpdateGroupComponent implements OnInit {
 
     //#region REMOVE
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateGroupRemoveComponent)
+       @ViewChild(MspDirectUpdateGroupRemoveComponent)
     formRemove: MspDirectUpdateGroupRemoveComponent;
 
     get formRemoveState(): FormGroup {
@@ -124,8 +123,7 @@ export class MspDirectUpdateGroupComponent implements OnInit {
 
     //#region Add
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateGroupAddComponent)
+       @ViewChild(MspDirectUpdateGroupAddComponent)
     formAdd: MspDirectUpdateGroupAddComponent;
 
     get formAddState(): FormGroup {
@@ -147,8 +145,7 @@ export class MspDirectUpdateGroupComponent implements OnInit {
 
     //#region Update
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateGroupEditComponent)
+       @ViewChild(MspDirectUpdateGroupEditComponent)
     formEdit: MspDirectUpdateGroupEditComponent;
 
     get formEditState(): FormGroup {
