@@ -25,7 +25,7 @@ export class ValidatorHelpers {
 
     *genValidators(
         option: validatorOpts,
-        num: number = 0
+        num = 0
     ): Iterator<ValidatorFn> {
         yield Validators.required;
         yield Validators.minLength(num);
@@ -57,7 +57,7 @@ export function isValidOptionalField(fieldValue: string | boolean | any): boolea
 }
 
 export function postalCodeValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
+    return (control: AbstractControl): Record<string, any> | null => {
         const forbidden = !/^[ABCEGHJ-NPRSTVXY][0-9][ABCEGHJ-NPRSTV-Z][0-9][ABCEGHJ-NPRSTV-Z][0-9]$/.test(
             control.value
         );
@@ -71,7 +71,7 @@ export function postalCodeValidator(): ValidatorFn {
  * Does not accept spaces or blank string
  */
 export function trailingSpacesValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
+    return (control: AbstractControl): Record<string, any> | null => {
         if (!control.value || control.value.length === 0) return null; // Necessary for optional fields.
         const forbidden = !/^(?!\s*$).+/.test(
             control.value
@@ -86,9 +86,8 @@ export function trailingSpacesValidator(): ValidatorFn {
 }
 
 export function emailValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
-        // tslint:disable-next-line: max-line-length
-        // const forbidden = !/(?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9](?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9-]*[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9])?\.)+[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9](?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9-]*[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/.test(
+    return (control: AbstractControl): Record<string, any> | null => {
+               // const forbidden = !/(?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9](?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9-]*[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9])?\.)+[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9](?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9-]*[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/.test(
         const forbidden = /^(\S+)@(\S+)\.(\S+)$/.test(
         control.value
         );
@@ -102,7 +101,7 @@ export function emailValidator(): ValidatorFn {
  * Validates group number
  */
 export function groupNumberValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
+    return (control: AbstractControl): Record<string, any> | null => {
         const forbidden = !/^[0-9]{7}$/.test(control.value);
         return forbidden
             ? { invalidGroupNumber: { value: control.value } }
@@ -114,7 +113,7 @@ export function groupNumberValidator(): ValidatorFn {
  * Validates organization number
  */
 export function organizationNumberValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
+    return (control: AbstractControl): Record<string, any> | null => {
         const forbidden = !/^[0-9]{8}$/.test(control.value);
         return forbidden
             ? { invalidGroupNumber: { value: control.value } }
@@ -126,14 +125,14 @@ export function organizationNumberValidator(): ValidatorFn {
  * Validates number, alphabetics, small braces, slash ,hyphen, colon, full stop
  */
 export function addressValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
+    return (control: AbstractControl): Record<string, any> | null => {
         const forbidden = !/^$|[0-9A-Za-z\s\-\/():.,]+$/.test(control.value);
         return forbidden ? { invalidAddress: { value: control.value } } : null;
     };
 }
 
 export function administeringForValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
+    return (control: AbstractControl): Record<string, any> | null => {
         const forbidden = !/^[EIB]$/.test(control.value);
         return forbidden
             ? { invalid: { value: `${control.value} is not valid` } }
@@ -142,7 +141,7 @@ export function administeringForValidator(): ValidatorFn {
 }
 
 export function phoneValidator() {
-    return (control: AbstractControl): { [key: string]: any } | null => {
+    return (control: AbstractControl): Record<string, any> | null => {
         const forbidden = !/^[1-9][0-9]{2}[0-9]{7}$|^$/.test(control.value);
         return forbidden
             ? { invalid: { value: `${control.value} is not valid` } }
@@ -151,7 +150,7 @@ export function phoneValidator() {
 }
 
 export function faxValidator() {
-    return (control: AbstractControl): { [key: string]: any } | null => {
+    return (control: AbstractControl): Record<string, any> | null => {
         if (!control.value) return null;
         const forbidden = !/^[1-9][0-9]{2}[0-9]{7}$|^$/.test(control.value);
         return forbidden
@@ -214,8 +213,8 @@ export function matchFieldValidator(
 }
 
 export const required = Validators.required;
-export const maxLength = (num: number = 100) => Validators.maxLength(num);
-export const minLength = (num: number = 3) => Validators.minLength(num);
+export const maxLength = (num = 100) => Validators.maxLength(num);
+export const minLength = (num = 3) => Validators.minLength(num);
 
 export function trimText(sourceText: string) {
     if ( trimText)  return sourceText.trim();

@@ -18,10 +18,11 @@ import {
 } from '../../../common/update-validators';
 
 import { getEditJsonOfSigningAuthority } from '../shared/signing-authority-json-map';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../../../environments/environment';
 import { RandomObjects, IDataForm } from '../../../common/i-dataform';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-update-signing-authority-edit',
     templateUrl: './signing-authority-edit.component.html',
     styleUrls: ['./signing-authority-edit.component.scss'],

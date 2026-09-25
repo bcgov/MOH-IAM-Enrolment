@@ -1,10 +1,11 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
-import { APPLICATION_ROUTES } from '@msp-register/constants';
-import { SplashPageService } from 'src/app/modules/splash-page/splash-page.service';
+import { APPLICATION_ROUTES } from '../../../modules/msp-register/constants';
+import { SplashPageService } from '../../../modules/splash-page/splash-page.service';
 import { Observable, BehaviorSubject, interval, timer } from 'rxjs';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-home-page',
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.scss'],

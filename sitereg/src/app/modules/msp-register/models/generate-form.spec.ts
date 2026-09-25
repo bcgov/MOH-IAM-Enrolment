@@ -1,6 +1,6 @@
 import { GenerateForm } from './generate-form';
 import { FormBuilder, Validators } from '@angular/forms';
-import { IMspOrganization } from '@msp-register/interfaces';
+import { IMspOrganization } from '../../msp-register/interfaces';
 import { postalCodeValidator } from './validator-helpers';
 
 describe('GenerateForm', () => {
@@ -32,8 +32,8 @@ describe('GenerateForm', () => {
             'administeringFor',
         ];
         const required = Validators.required;
-        const maxLength = (num: number = 100) => Validators.maxLength(num);
-        const minLength = (num: number = 3) => Validators.minLength(num);
+        const maxLength = (num = 100) => Validators.maxLength(num);
+        const minLength = (num = 3) => Validators.minLength(num);
         function genValidators() {
             return {
                 name: [Validators.required, Validators.maxLength(100)],

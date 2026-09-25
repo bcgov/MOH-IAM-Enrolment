@@ -7,11 +7,12 @@ import {
 } from '../../../common/validators';
 import { getEditJSONofOrganization } from '../shared/organization-json-map';
 import { RandomObjects, IDataForm } from '../../../common/i-dataform';
-import { environment } from 'src/environments/environment.prod';
-import { Address } from 'moh-common-lib';
-import { SpaEnvService } from '@shared/services/spa-env.service';
+import { environment } from '../.../../../../../../../environments/environment';
+import { Address } from 'moh-common-lib-angular';
+import { SpaEnvService } from '../../../../../shared/services/spa-env.service';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-update-organization-edit',
     templateUrl: './organization-edit.component.html',
     styleUrls: ['./organization-edit.component.scss'],
@@ -40,7 +41,7 @@ export class MspDirectUpdateOrganizationEditComponent
             this.statusChanged.emit(this.parentForm);
             for (const controlName in this.parentForm.controls) {
                 if (controlName) {
-                    let control = this.parentForm.get(controlName);
+                    const control = this.parentForm.get(controlName);
                     if (control && control.status === 'INVALID') {
                         console.log(controlName + ' invalid');
                     }

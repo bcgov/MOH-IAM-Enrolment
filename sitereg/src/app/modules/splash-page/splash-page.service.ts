@@ -21,8 +21,7 @@ export class SplashPageService {
     private loaded = false;
     public maintenanceMode: boolean = null;
 
-    // tslint:disable-next-line: variable-name
-    private _values = new BehaviorSubject<SpaEnvResponse>(null);
+       private _values = new BehaviorSubject<SpaEnvResponse>(null);
     /**
      * Currently this is all the values from the SpaEnvService, because all those
      * values are used for the splash service.

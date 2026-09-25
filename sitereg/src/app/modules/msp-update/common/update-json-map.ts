@@ -99,7 +99,7 @@ export function isValidOptionalField(
 
 //#region IAM-Mapping
 
-export function deepCopy(obj: any, prefixProperty: string = ''): any {
+export function deepCopy(obj: any, prefixProperty = ''): any {
     const newObject = {};
     Object.keys(obj).forEach((k) => {
         const newPropertyName = `${prefixProperty}${k}`;

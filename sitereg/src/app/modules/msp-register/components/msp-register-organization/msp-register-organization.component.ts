@@ -1,27 +1,28 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MspRegisterStateService } from '@msp-register/services/msp-register-state.service';
-import { CountryData } from '@shared/models/country-data';
+import { MspRegisterStateService } from '../../../msp-register/services/msp-register-state.service';
+import { CountryData } from '../../../../shared/models/country-data';
 import { BehaviorSubject } from 'rxjs';
-import { IProvince } from '@shared/interfaces/i-provinces';
+import { IProvince } from '../../../../shared/interfaces/i-provinces';
 import {
     validFormControl,
     organizationNumberValidator,
-} from '@msp-register/models/validator-helpers';
-import { MspRegisterDataService } from '@msp-register/services/msp-register-data.service';
-import { LoggerService } from '@shared/services/logger.service';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+} from '../../../msp-register/models/validator-helpers';
+import { MspRegisterDataService } from '../../../msp-register/services/msp-register-data.service';
+import { LoggerService } from '../../../../shared/services/logger.service';
+import { GlobalConfigService } from '../../../../shared/services/global-config.service';
 import {
     funcRemoveStrings,
     MSP_REGISTER_ROUTES,
-} from '@msp-register/constants';
-import { MspRegistrationService } from '@msp-register/msp-registration.service';
-import { ConsentModalComponent, Address } from 'moh-common-lib';
-import { environment } from 'src/environments/environment.prod';
-import { SpaEnvService } from '@shared/services/spa-env.service';
+} from '../../../msp-register/constants';
+import { MspRegistrationService } from '../../../msp-register/msp-registration.service';
+import { ConsentModalComponent, Address } from 'moh-common-lib-angular';
+import { environment } from '../../../../../environments/environment';
+import { SpaEnvService } from '../../../../shared/services/spa-env.service';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-register-organization',
     templateUrl: './msp-register-organization.component.html',
     styleUrls: ['./msp-register-organization.component.scss'],

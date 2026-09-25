@@ -8,6 +8,7 @@ import * as interfaceObjects from '../shared/i-group';
 import * as common from '../../../common/update-json-map';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-update-group-review',
     templateUrl: './group-review.component.html',
     styleUrls: ['./group-review.component.scss'],

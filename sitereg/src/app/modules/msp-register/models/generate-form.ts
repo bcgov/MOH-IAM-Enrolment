@@ -5,7 +5,7 @@ import {
     FormGroup,
     ValidatorFn,
 } from '@angular/forms';
-import { IMspOrganization, MSPValidForms } from '@msp-register/interfaces';
+import { IMspOrganization, MSPValidForms } from '../../msp-register/interfaces';
 import { validatorOpts } from './validator-helpers';
 type valueof<T> = T[keyof T];
 const ctrKeys = ['fb', 'gf', 'newFb'];

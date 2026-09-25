@@ -7,7 +7,7 @@ import {
     UrlSegment,
 } from '@angular/router';
 import { ROUTES_UPDATE } from '../routing/routes.constants';
-import { CheckCompleteBaseService, PageListInterface } from 'moh-common-lib';
+import { CheckCompleteBaseService, PageListInterface } from 'moh-common-lib-angular';
 import { environment } from '../../../../environments/environment';
 
 export interface MspProgressItem extends PageListInterface {

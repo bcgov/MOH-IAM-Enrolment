@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { MspDirectUpdateProgressService } from '../../../services/progress.service';
 import { ROUTES_UPDATE } from '../../../routing/routes.constants';
-import { funcRemoveStrings } from '@msp-register/constants';
-import { LoggerService } from '@shared/services/logger.service';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { funcRemoveStrings } from '../../../../msp-register/constants';
+import { LoggerService } from '../../../../../shared/services/logger.service';
+import { GlobalConfigService } from '../../../../../shared/services/global-config.service';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import {
     UpdateStateService,
@@ -15,6 +15,7 @@ import { MspDirectUpdateSigningAuthorityAddComponent } from '../signing-authorit
 import { MspDirectUpdateSigningAuthorityEditComponent } from '../signing-authority-edit/signing-authority-edit.component';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-update-signing-authority',
     templateUrl: './signing-authority.component.html',
     styleUrls: ['./signing-authority.component.scss'],
@@ -160,8 +161,7 @@ export class MspDirectUpdateSigningAuthorityComponent implements OnInit {
 
     //#region Edit
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateSigningAuthorityEditComponent)
+       @ViewChild(MspDirectUpdateSigningAuthorityEditComponent)
     formEdit: MspDirectUpdateSigningAuthorityEditComponent;
 
     get formEditState(): FormGroup {
@@ -183,8 +183,7 @@ export class MspDirectUpdateSigningAuthorityComponent implements OnInit {
 
     //#region Add
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateSigningAuthorityAddComponent)
+       @ViewChild(MspDirectUpdateSigningAuthorityAddComponent)
     formAdd: MspDirectUpdateSigningAuthorityAddComponent;
 
     get formAddState(): FormGroup {
@@ -206,8 +205,7 @@ export class MspDirectUpdateSigningAuthorityComponent implements OnInit {
 
     //#region REMOVE
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateSigningAuthorityRemoveComponent)
+       @ViewChild(MspDirectUpdateSigningAuthorityRemoveComponent)
     formRemove: MspDirectUpdateSigningAuthorityRemoveComponent;
 
     get formRemoveState(): FormGroup {

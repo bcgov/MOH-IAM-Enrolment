@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { MspRegisterRoutingModule } from './msp-register-routing.module';
-import { MspRegisterComponent } from '@msp-register/msp-register.component';
-import { SharedModule } from '@shared/shared.module';
+import { MspRegisterComponent } from '../msp-register/msp-register.component';
+import { SharedModule } from '../../shared/shared.module';
 import { MspRegisterOrganizationComponent } from './components/msp-register-organization/msp-register-organization.component';
 import { MspRegisterAccessAdminsComponent } from './components/msp-register-access-admins/msp-register-access-admins.component';
 import { MspRegisterAuthorizeComponent } from './components/msp-register-authorize/msp-register-authorize.component';
@@ -13,7 +12,7 @@ import { MspRegisterUsersComponent } from './components/msp-register-users/msp-r
 import { MspRegisterAuthorizeAccessComponent } from './components/msp-register-authorize-access/msp-register-authorize-access.component';
 import { MspRegisterUserMspComponent } from './components/core/msp-register-user-msp/msp-register-user-msp.component';
 import { MspRegisterUserComponent } from './components/core/msp-register-user/msp-register-user.component';
-import { CaptchaModule } from 'moh-common-lib/captcha';
+import { CaptchaModule } from 'moh-common-lib-angular/captcha';
 import { MspRegisterAutofillComponent } from './components/autofill/autofill.component';
 import { MspRegisterConfirmationComponent } from './components/msp-register-confirmation/msp-register-confirmation.component';
 import { MspRegisterReviewComponent } from './components/msp-register-review/msp-register-review.component';
@@ -23,7 +22,6 @@ import { MspRegisterH2WithPrintComponent } from './common/h2-with-print/h2-with-
     declarations: [
         MspRegisterComponent,
         MspRegisterH2WithPrintComponent,
-
         MspRegisterUserComponent,
         MspRegisterOrganizationComponent,
         MspRegisterAccessAdminsComponent,

@@ -4,14 +4,15 @@ import { Router } from '@angular/router';
 import {
     validMultiFormControl,
     matchFieldValidator,
-} from '@msp-register/models/validator-helpers';
+} from '../../../../msp-register/models/validator-helpers';
 import { BehaviorSubject } from 'rxjs';
 import {
     cAdministeringFor,
     cUserTitles,
-} from '@msp-register/models/core/core-types';
+} from '../../../../msp-register/models/core/core-types';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-register-user',
     templateUrl: './msp-register-user.component.html',
     styleUrls: ['./msp-register-user.component.scss'],

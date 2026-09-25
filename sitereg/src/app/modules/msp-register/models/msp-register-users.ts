@@ -7,8 +7,8 @@ import {
     cUserValidators,
 } from './core/core-types';
 import { MspUser } from './imodels/msp-register-user';
-import { IMspUser } from '@msp-register/interfaces/i-msp-user';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { IMspUser } from '../../msp-register/interfaces/i-msp-user';
+import { GlobalConfigService } from '../../../shared/services/global-config.service';
 
 export class MspRegisterUsers extends GenerateForm<IMspUser>
     implements MspUser {

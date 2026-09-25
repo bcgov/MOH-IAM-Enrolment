@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { MspRegisterDataService } from '@msp-register/services/msp-register-data.service';
+import { MspRegisterDataService } from '../../../msp-register/services/msp-register-data.service';
 import { Router } from '@angular/router';
-import { environment } from '../../../../../environments/environment';
-import { GlobalConfigService } from '@shared/services/global-config.service';
-import { LoggerService } from '@shared/services/logger.service';
-import { MSP_REGISTER_ROUTES } from '@msp-register/constants';
-import { MspRegistrationService } from '@msp-register/msp-registration.service';
-// import { environment } from '
+import { GlobalConfigService } from '../../../../shared/services/global-config.service';
+import { LoggerService } from '../../../../shared/services/logger.service';
+import { MSP_REGISTER_ROUTES } from '../../../msp-register/constants';
+import { MspRegistrationService } from '../../../msp-register/msp-registration.service';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-register-confirmation',
     templateUrl: './msp-register-confirmation.component.html',
     styleUrls: ['./msp-register-confirmation.component.scss'],

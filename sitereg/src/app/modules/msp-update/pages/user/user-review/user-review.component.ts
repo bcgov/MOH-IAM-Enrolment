@@ -8,6 +8,7 @@ import * as interfaceObjects from '../shared/i-user';
 import * as common from '../../../common/update-json-map';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-update-user-review',
     templateUrl: './user-review.component.html',
     styleUrls: ['./user-review.component.scss'],

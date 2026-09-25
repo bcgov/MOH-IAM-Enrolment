@@ -1,19 +1,18 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { AutofillComponent } from './autofill.component';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MspRegisterAutofillComponent } from '../autofill/autofill.component';
 
 describe('AutofillComponent', () => {
-    let component: AutofillComponent;
-    let fixture: ComponentFixture<AutofillComponent>;
+    let component: MspRegisterAutofillComponent;
+    let fixture: ComponentFixture<MspRegisterAutofillComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
-            declarations: [AutofillComponent],
+            declarations: [MspRegisterAutofillComponent],
         }).compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(AutofillComponent);
+        fixture = TestBed.createComponent(MspRegisterAutofillComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

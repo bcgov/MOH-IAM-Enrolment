@@ -1,9 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { cAdministeringFor, cAdministeringForUpdate } from '@msp-register/models/core/core-types';
-import { validFormControl } from 'src/app/modules/msp-update/common/validators';
+import { cAdministeringFor, cAdministeringForUpdate } from '../../../modules/msp-register/models/core/core-types';
+import { validFormControl } from '../../../modules/msp-update/common/validators';
 
 @Component({
+  standalone: false,
   selector: 'sitereg-organization-form',
   templateUrl: './organization-form.component.html',
   styleUrls: ['./organization-form.component.scss']

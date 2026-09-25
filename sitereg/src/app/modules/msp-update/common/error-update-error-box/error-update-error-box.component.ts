@@ -9,9 +9,10 @@ import {
     isRequiredError,
     validFormControl,
     validMultiFormControl,
-} from 'src/app/modules/msp-update/common/validators';
+} from '../../../../modules/msp-update/common/validators';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-update-error-box',
     templateUrl: './error-update-error-box.component.html',
     styleUrls: ['./error-update-error-box.component.scss'],

@@ -298,13 +298,11 @@ export interface IUpdateApplicationJson {
     msp_group_updated?: any; // msp_group_def
 }
 
-// tslint:disable-next-line: class-name
 export interface ji_person_id_def {
     email: string; // follows a pattern
     user_id?: string;
 }
 
-// tslint:disable-next-line: class-name
 export interface ji_org_maintenance_def {
     // these should be optional
     org_name?: string;
@@ -317,7 +315,6 @@ export interface ji_org_maintenance_def {
     address_2?: string;
 }
 
-// tslint:disable-next-line: class-name
 export interface ji_core_user_add_def {
     first_name: string;
     last_name: string;
@@ -332,22 +329,18 @@ export interface ji_core_user_add_def {
     fax_num?: string;
 }
 
-// tslint:disable-next-line: class-name
 export interface ji_signing_authority_def extends ji_core_user_add_def {
     spg?: string;
 }
 
-// tslint:disable-next-line: class-name
 export interface ji_access_administrator_def extends ji_core_user_add_def {
     spg: string;
 }
 
-// tslint:disable-next-line: class-name
 export interface ji_user_def extends ji_core_user_add_def {
     spg: string;
 }
 
-// tslint:disable-next-line: class-name
 export interface ji_core_user_update_def {
     user: ji_person_id_def;
     msp_access: string;
@@ -363,32 +356,27 @@ export interface ji_core_user_update_def {
     fax_num?: string;
 }
 
-// tslint:disable-next-line: class-name
 export interface ji_signing_authority_update_update_def
     extends ji_core_user_update_def {
     spg?: string;
 }
 
-// tslint:disable-next-line: class-name
 export interface ji_access_administrator_update_def
     extends ji_core_user_update_def {
     change_role: string;
     spg?: string;
 }
 
-// tslint:disable-next-line: class-name
 export interface ji_user_update_def extends ji_core_user_update_def {
     change_role: string;
     spg?: string;
 }
 
-// tslint:disable-next-line: class-name
 export interface ji_msp_group_def {
     mspgroup_num: string;
     third_party: any;
 }
 
-// tslint:disable-next-line: class-name
 export interface ji_msp_group_update_def {
     mspgroup_num: string;
     third_party: any;
@@ -398,7 +386,6 @@ export interface ji_msp_group_update_def {
 
 //#region non-json models without
 
-// tslint:disable-next-line: class-name
 export interface ji_requestor_def {
     request_uuid: string;
     request_num: string; // request_num_def

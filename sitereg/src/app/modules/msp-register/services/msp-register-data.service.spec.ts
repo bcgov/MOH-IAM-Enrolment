@@ -7,12 +7,12 @@ import {
     sa,
     users,
     accessAdmins,
-} from '@msp-register/mocks';
+} from '../../msp-register/mocks';
 import {
     ISigningAuthorityDef,
     IUserDef,
     IAccessAdministratorDef,
-} from '@core/interfaces/i-http-data';
+} from '../../../core/interfaces/i-http-data';
 
 describe('MspRegisterDataService', () => {
     beforeEach(() => TestBed.configureTestingModule({}));

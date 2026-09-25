@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MspRegisterStateService } from '@msp-register/services/msp-register-state.service';
+import { MspRegisterStateService } from '../../../msp-register/services/msp-register-state.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { MspRegisterDataService } from '@msp-register/services/msp-register-data.service';
-import { validMultiFormControl } from '@msp-register/models/validator-helpers';
-import { IMspUser } from '@msp-register/interfaces/i-msp-user';
+import { MspRegisterDataService } from '../../../msp-register/services/msp-register-data.service';
+import { validMultiFormControl } from '../../../msp-register/models/validator-helpers';
+import { IMspUser } from '../../../msp-register/interfaces/i-msp-user';
 import { cAdministeringFor } from '../../models/core/core-types';
-import { LoggerService } from '@shared/services/logger.service';
+import { LoggerService } from '../../../../shared/services/logger.service';
 import {
     funcRemoveStrings,
     MSP_REGISTER_ROUTES,
-} from '@msp-register/constants';
-import { GlobalConfigService } from '@shared/services/global-config.service';
-import { MspRegistrationService } from '@msp-register/msp-registration.service';
-import { environment } from 'src/environments/environment.prod';
+} from '../../../msp-register/constants';
+import { GlobalConfigService } from '../../../../shared/services/global-config.service';
+import { MspRegistrationService } from '../../../msp-register/msp-registration.service';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-register-users',
     templateUrl: './msp-register-users.component.html',
     styleUrls: ['./msp-register-users.component.scss'],
@@ -27,7 +28,8 @@ export class MspRegisterUsersComponent implements OnInit {
     }
     fgs: FormGroup[] = [];
     validFormControl: () => boolean;
-    validateFormGroup = this.mspRegisterStateSvc.validFormGroup;
+    validateFormGroup: (fgs: FormGroup[]) => boolean;
+    
     administeringFor: BehaviorSubject<string[]> = new BehaviorSubject<string[]>(
         cAdministeringFor
     );
@@ -42,23 +44,10 @@ export class MspRegisterUsersComponent implements OnInit {
     ) {
         this.updateFormGroups();
         this.validFormControl = validMultiFormControl.bind(this);
-
-        // // debug only
-        // this.fgs.forEach((fg) => {
-        //     fg.valueChanges.subscribe((obs) => console.log(fg));
-        // });
     }
 
     ngOnInit() {
-        // console.log(
-        //     `%c%o : %o`,
-        //     'color:green',
-        //     funcRemoveStrings(
-        //         ['MspRegister', 'Component'],
-        //         this.constructor.name
-        //     ).toUpperCase(),
-        //     this.globalConfigSvc.applicationId
-        // );
+        this.validateFormGroup = this.mspRegisterStateSvc.validFormGroup;
         this.registrationService.setItemIncomplete();
     }
 

@@ -5,24 +5,24 @@ import { ROUTES_UPDATE } from '../../routing/routes.constants';
 import {
     funcRemoveStrings,
     MSP_REGISTER_ROUTES,
-} from '@msp-register/constants';
-import { LoggerService, LogMessage } from '@shared/services/logger.service';
-import { GlobalConfigService } from '@shared/services/global-config.service';
-import { environment } from '../../../../../environments/environment.prod';
+} from '../../../msp-register/constants';
+import { LoggerService, LogMessage } from '../../../../shared/services/logger.service';
+import { GlobalConfigService } from '../../../../shared/services/global-config.service';
+import { environment } from '../../../../../environments/environment';
 import { MspRegisterApiService } from '../../../../shared/services/api.service';
 import { UpdateStateService } from '../../services/update.state.service';
 import { MspUpdateApiService } from '../../services/api.service';
 import { jsonPayLoadApplication } from './json-payload';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-update-submit',
     templateUrl: './submit.component.html',
     styleUrls: ['./submit.component.scss'],
 })
 export class MspDirectUpdateSubmitComponent implements OnInit {
     requestUUID: string;
-    // tslint:disable-next-line:variable-name
-    private _hasToken = false;
+       private _hasToken = false;
     // public isProcessing = false;
     date: Date = new Date();
 
