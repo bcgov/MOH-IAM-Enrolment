@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 import { UpdateStateService } from '../../services/update.state.service';
 import { ROUTES_UPDATE } from '../../routing/routes.constants';
 import { ReviewItemInterface } from '../../components/review-section/review-section.component';
-import { LoggerService } from '@shared/services/logger.service';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { LoggerService } from '../../../../shared/services/logger.service';
+import { GlobalConfigService } from '../../../../shared/services/global-config.service';
 import { MspDirectUpdateProgressService } from '../../services/progress.service';
-import { funcRemoveStrings } from '@msp-register/constants';
+import { funcRemoveStrings } from '../../../msp-register/constants';
 import { jsonPayLoadApplication } from '../submit/json-payload';
 
 @Component({

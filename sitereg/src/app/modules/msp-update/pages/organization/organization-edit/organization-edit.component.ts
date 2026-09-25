@@ -9,7 +9,7 @@ import { getEditJSONofOrganization } from '../shared/organization-json-map';
 import { RandomObjects, IDataForm } from '../../../common/i-dataform';
 import { environment } from '../.../../../../../../../environments/environment';
 import { Address } from 'moh-common-lib-angular';
-import { SpaEnvService } from '@shared/services/spa-env.service';
+import { SpaEnvService } from '../../../../../shared/services/spa-env.service';
 
 @Component({
     standalone: false,

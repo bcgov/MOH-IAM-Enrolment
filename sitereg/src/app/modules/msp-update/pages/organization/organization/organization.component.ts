@@ -2,16 +2,16 @@ import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { MspDirectUpdateProgressService } from '../../../services/progress.service';
 import { ROUTES_UPDATE } from '../../../routing/routes.constants';
-import { funcRemoveStrings } from '@msp-register/constants';
-import { LoggerService } from '@shared/services/logger.service';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { funcRemoveStrings } from '../../../../msp-register/constants';
+import { LoggerService } from '../../../../../shared/services/logger.service';
+import { GlobalConfigService } from '../../../../../shared/services/global-config.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { UpdateStateService } from '../../../services/update.state.service';
 import { AbstractForm } from 'moh-common-lib-angular';
 import {
     cUpdateValidators,
     cAdministeringForUpdate,
-} from '@msp-register/models/core/core-types';
+} from '../../../../msp-register/models/core/core-types';
 import { MspDirectUpdateOrganizationEditComponent } from '../organization-edit/organization-edit.component';
 
 @Component({

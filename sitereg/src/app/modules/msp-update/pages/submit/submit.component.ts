@@ -5,10 +5,10 @@ import { ROUTES_UPDATE } from '../../routing/routes.constants';
 import {
     funcRemoveStrings,
     MSP_REGISTER_ROUTES,
-} from '@msp-register/constants';
-import { LoggerService, LogMessage } from '@shared/services/logger.service';
-import { GlobalConfigService } from '@shared/services/global-config.service';
-import { environment } from '../../../../../environments/environment.prod';
+} from '../../../msp-register/constants';
+import { LoggerService, LogMessage } from '../../../../shared/services/logger.service';
+import { GlobalConfigService } from '../../../../shared/services/global-config.service';
+import { environment } from '../../../../../environments/environment';
 import { MspRegisterApiService } from '../../../../shared/services/api.service';
 import { UpdateStateService } from '../../services/update.state.service';
 import { MspUpdateApiService } from '../../services/api.service';

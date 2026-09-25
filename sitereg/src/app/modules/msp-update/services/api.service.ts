@@ -7,7 +7,7 @@ import {
 } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import moment from 'moment';
-import { PayloadInterface } from '@core/models/api-base.model';
+import { PayloadInterface } from '../../../core/models/api-base.model';
 import { environment } from '../../../../environments/environment';
 import { LoggerService } from '../../../shared/services/logger.service';
 import { GlobalConfigService } from '../../../shared/services/global-config.service';

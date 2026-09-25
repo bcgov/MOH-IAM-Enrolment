@@ -1,5 +1,5 @@
 import { GenerateForm } from './generate-form';
-import { IMspOrganization } from '@msp-register/interfaces';
+import { IMspOrganization } from '../../msp-register/interfaces';
 import { FormBuilder, Validators } from '@angular/forms';
 import {
     postalCodeValidator,
@@ -9,7 +9,7 @@ import {
     trailingSpacesValidator,
 } from './validator-helpers';
 import { ctFormControlString, ctFormControlBoolean } from './core/core-types';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { GlobalConfigService } from '../../../shared/services/global-config.service';
 export class MspRegisterOrganization extends GenerateForm<IMspOrganization>
     implements IMspOrganization {
     name: ctFormControlString = null;

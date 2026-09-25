@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { MspDirectUpdateProgressService } from '../../../services/progress.service';
 import { ROUTES_UPDATE } from '../../../routing/routes.constants';
-import { funcRemoveStrings } from '@msp-register/constants';
-import { LoggerService } from '@shared/services/logger.service';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { funcRemoveStrings } from '../../../../msp-register/constants';
+import { LoggerService } from '../../../../../shared/services/logger.service';
+import { GlobalConfigService } from '../../../../../shared/services/global-config.service';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import {
     UpdateStateService,

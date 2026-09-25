@@ -3,31 +3,31 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {
     MspRegisterStateService,
     UserTypes,
-} from '@msp-register/services/msp-register-state.service';
-import { MspRegisterDataService } from '@msp-register/services/msp-register-data.service';
-import { validFormControl } from '@msp-register/models/validator-helpers';
+} from '../../../msp-register/services/msp-register-state.service';
+import { MspRegisterDataService } from '../../../msp-register/services/msp-register-data.service';
+import { validFormControl } from '../../../msp-register/models/validator-helpers';
 import {
     IMspGroupDef,
     IUserDef,
     IAccessAdministratorDef,
-} from '@core/interfaces/i-http-data';
+} from '../../../../core/interfaces/i-http-data';
 import {
     IMspGroup,
     IMspSigningAuthority,
     IMspOrganization,
-} from '@msp-register/interfaces';
-import { IMspUser } from '@msp-register/interfaces/i-msp-user';
-import { IMspAccessAdmin } from '@msp-register/interfaces/i-msp-access-admins';
+} from '../../../msp-register/interfaces';
+import { IMspUser } from '../../../msp-register/interfaces/i-msp-user';
+import { IMspAccessAdmin } from '../../../msp-register/interfaces/i-msp-access-admins';
 import { Router } from '@angular/router';
-import { MspRegisterApiService } from '@shared/services/api.service';
-import { LoggerService, LogMessage } from '@shared/services/logger.service';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { MspRegisterApiService } from '../../../../shared/services/api.service';
+import { LoggerService, LogMessage } from '../../../../shared/services/logger.service';
+import { GlobalConfigService } from '../../../../shared/services/global-config.service';
 import {
     funcRemoveStrings,
     funcRandomNumber8Digit,
     MSP_REGISTER_ROUTES,
-} from '@msp-register/constants';
-import { MspRegistrationService } from '@msp-register/msp-registration.service';
+} from '../../../msp-register/constants';
+import { MspRegistrationService } from '../../../msp-register/msp-registration.service';
 import { environment } from '../../../../../environments/environment';
 // import {  } from 'moh-common-lib-angular/captcha';
 

@@ -1,24 +1,18 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "@core/*": ["src/app/core/*"],
-      "@shared/*": ["src/app/shared/*"],
-      "@msp-register/*": ["src/app/modules/msp-register/*"]
-    },
     "outDir": "./dist/out-tsc",
     "esModuleInterop": true,
+    "baseUrl": "src",
     "sourceMap": true,
     "declaration": false,
-    "moduleResolution": "bundler",
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
     "skipLibCheck": true,
-    "mapRoot": "./",
     "typeRoots": [
       "node_modules/@types"
     ]

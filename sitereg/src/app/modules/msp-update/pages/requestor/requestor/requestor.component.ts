@@ -8,8 +8,8 @@ import {
 import { ROUTES_UPDATE } from '../../../routing/routes.constants';
 import { Router } from '@angular/router';
 import { MspDirectUpdateProgressService } from '../../../services/progress.service';
-import { LoggerService } from '@shared/services/logger.service';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { LoggerService } from '../../../../../shared/services/logger.service';
+import { GlobalConfigService } from '../../../../../shared/services/global-config.service';
 import { UpdateStateService } from '../../../services/update.state.service';
 import {
     cUpdateValidators,

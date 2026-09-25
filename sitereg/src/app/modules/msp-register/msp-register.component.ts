@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Container } from 'moh-common-lib-angular';
-import { subRoutes } from '@msp-register/sub-routes';
+import { subRoutes } from '../msp-register/sub-routes';
 import { Router } from '@angular/router';
-import { GlobalConfigService } from '@shared/services/global-config.service';
-import { funcRemoveStrings } from './constants';
+import { GlobalConfigService } from '../../shared/services/global-config.service';
 import { MspRegistrationService } from './msp-registration.service';
 
 @Component({
@@ -28,17 +27,7 @@ export class MspRegisterComponent extends Container implements OnInit {
     }
 
     ngOnInit() {
-        // this.globalConfigSvc.logRefreshMspApplicationUUID();
-        // console.log(
-        //     `%c %o \n MSP Application id: %o`,
-        //     'color:green',
-        //     funcRemoveStrings(['Component'], this.constructor.name),
-        //     this.globalConfigSvc.applicationId
-        // );
-
         this.registrationService.getRegisterationItems();
-
-        // console.log('ANSWER:%o', this.showStepper());
     }
 
     setProgressItems() {
@@ -47,6 +36,5 @@ export class MspRegisterComponent extends Container implements OnInit {
         });
 
         this.setProgressSteps(progressItemRoute);
-        // console.log('PATH: %o', this.router.url);
     }
 }

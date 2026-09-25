@@ -1,18 +1,18 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
-import { MspRegisterStateService } from '@msp-register/services/msp-register-state.service';
-import { validMultiFormControl } from '@msp-register/models/validator-helpers';
-import { MspRegisterDataService } from '@msp-register/services/msp-register-data.service';
+import { MspRegisterStateService } from '../../../msp-register/services/msp-register-state.service';
+import { validMultiFormControl } from '../../../msp-register/models/validator-helpers';
+import { MspRegisterDataService } from '../../../msp-register/services/msp-register-data.service';
 import { BehaviorSubject } from 'rxjs';
 import { cAdministeringFor } from '../../models/core/core-types';
-import { LoggerService } from '@shared/services/logger.service';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { LoggerService } from '../../../../shared/services/logger.service';
+import { GlobalConfigService } from '../../../../shared/services/global-config.service';
 import {
     funcRemoveStrings,
     MSP_REGISTER_ROUTES,
-} from '@msp-register/constants';
-import { MspRegistrationService } from '@msp-register/msp-registration.service';
+} from '../../../msp-register/constants';
+import { MspRegistrationService } from '../../../msp-register/msp-registration.service';
 import { environment } from '../../../../../environments/environment';
 
 @Component({

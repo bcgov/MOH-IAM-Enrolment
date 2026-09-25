@@ -1,6 +1,6 @@
 import { GenerateForm } from './generate-form';
 import { FormBuilder, Validators } from '@angular/forms';
-import { IMspOrganization } from '@msp-register/interfaces';
+import { IMspOrganization } from '../../msp-register/interfaces';
 import { postalCodeValidator } from './validator-helpers';
 
 describe('GenerateForm', () => {

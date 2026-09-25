@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MspRegisterComponent } from './msp-register.component';
 import { subRoutes } from './sub-routes';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { GlobalConfigService } from '../../shared/services/global-config.service';
 import { MspRegistrationGuard } from './msp-registration.guard';
 
 const routes: Routes = [

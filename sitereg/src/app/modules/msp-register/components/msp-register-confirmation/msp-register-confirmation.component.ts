@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MspRegisterDataService } from '@msp-register/services/msp-register-data.service';
+import { MspRegisterDataService } from '../../../msp-register/services/msp-register-data.service';
 import { Router } from '@angular/router';
-import { GlobalConfigService } from '@shared/services/global-config.service';
-import { LoggerService } from '@shared/services/logger.service';
-import { MSP_REGISTER_ROUTES } from '@msp-register/constants';
-import { MspRegistrationService } from '@msp-register/msp-registration.service';
+import { GlobalConfigService } from '../../../../shared/services/global-config.service';
+import { LoggerService } from '../../../../shared/services/logger.service';
+import { MSP_REGISTER_ROUTES } from '../../../msp-register/constants';
+import { MspRegistrationService } from '../../../msp-register/msp-registration.service';
 
 @Component({
     standalone: false,

@@ -5,7 +5,7 @@ import {
     IAccessAdministratorDef,
     IUserDef,
     IMspGroupDef,
-} from '@core/interfaces/i-http-data';
+} from '../../core/interfaces/i-http-data';
 
 export interface ISiteRegRequest2 extends PayloadInterface {
     request_num: any;

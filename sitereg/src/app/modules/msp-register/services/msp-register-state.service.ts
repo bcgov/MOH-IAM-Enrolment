@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
-import { MspRegisterOrganization } from '@msp-register/models/msp-register-organization';
+import { MspRegisterOrganization } from '../../msp-register/models/msp-register-organization';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { GenerateForm } from '@msp-register/models/generate-form';
-import { MspRegisterAccessAdmins } from '@msp-register/models/msp-register-access-admins';
-import { MspRegisterSigningAuthority } from '@msp-register/models/msp-register-signing-authority';
-import { MspRegisterGroup } from '@msp-register/models/msp-register-group';
-import { MspRegisterUsers } from '@msp-register/models/msp-register-users';
-import { MspRegisterAuthorize } from '@msp-register/models/msp-register-authorize';
+import { GenerateForm } from '../../msp-register/models/generate-form';
+import { MspRegisterAccessAdmins } from '../../msp-register/models/msp-register-access-admins';
+import { MspRegisterSigningAuthority } from '../../msp-register/models/msp-register-signing-authority';
+import { MspRegisterGroup } from '../../msp-register/models/msp-register-group';
+import { MspRegisterUsers } from '../../msp-register/models/msp-register-users';
+import { MspRegisterAuthorize } from '../../msp-register/models/msp-register-authorize';
 import {
     IMspSigningAuthority,
     IMspOrganization,
     IMspGroup,
-} from '@msp-register/interfaces';
-import { IMspAccessAdmins, IMspAccessAdmin } from '@msp-register/interfaces/i-msp-access-admins';
-import { IMspUser, IMspUsers } from '@msp-register/interfaces/i-msp-user';
-// import { MspRegisterUserMsp } from '@msp-register/models/core/msp-register-user-msp';
+} from '../../msp-register/interfaces';
+import { IMspAccessAdmins, IMspAccessAdmin } from '../../msp-register/interfaces/i-msp-access-admins';
+import { IMspUser, IMspUsers } from '../../msp-register/interfaces/i-msp-user';
 
 export type UserTypes = 'admin' | 'user';
 @Injectable({

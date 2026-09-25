@@ -1,9 +1,8 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MspRegisterAccessAdminsComponent } from './msp-register-access-admins.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { SharedModule } from '@shared/shared.module';
-import { MspRegisterStateService } from '@msp-register/services/msp-register-state.service';
+import { SharedModule } from '../../../../shared/shared.module';
+import { MspRegisterStateService } from '../../../msp-register/services/msp-register-state.service';
 
 describe('MspRegisterAccessAdminsComponent', () => {
     let component: MspRegisterAccessAdminsComponent;

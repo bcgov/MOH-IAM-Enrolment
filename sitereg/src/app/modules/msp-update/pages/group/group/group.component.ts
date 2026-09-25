@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { GlobalConfigService } from '../../../../../shared/services/global-config.service';
 import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 import { MspDirectUpdateProgressService } from '../../../services/progress.service';
-import { LoggerService } from '@shared/services/logger.service';
+import { LoggerService } from '../../../../../shared/services/logger.service';
 import {
     UpdateStateService,
     FormStatusAddRemoveUpdate,

@@ -7,9 +7,9 @@ import {
 } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import moment from 'moment';
-import { PayloadInterface } from '@core/models/api-base.model';
+import { PayloadInterface } from '../../core/models/api-base.model';
 import { environment } from '../../../environments/environment';
-import { ISiteRegRequest } from '@core/interfaces/i-http-data';
+import { ISiteRegRequest } from '../../core/interfaces/i-http-data';
 import { LoggerService } from './logger.service';
 import { GlobalConfigService } from './global-config.service';
 

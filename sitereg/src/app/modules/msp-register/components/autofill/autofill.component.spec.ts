@@ -1,5 +1,5 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MspRegisterAutofillComponent } from 'src/app/modules/msp-register/components/autofill/autofill.component';
+import { MspRegisterAutofillComponent } from '../autofill/autofill.component';
 
 describe('AutofillComponent', () => {
     let component: MspRegisterAutofillComponent;

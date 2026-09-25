@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { MspRegisterRoutingModule } from './msp-register-routing.module';
-import { MspRegisterComponent } from '@msp-register/msp-register.component';
-import { SharedModule } from '@shared/shared.module';
+import { MspRegisterComponent } from '../msp-register/msp-register.component';
+import { SharedModule } from '../../shared/shared.module';
 import { MspRegisterOrganizationComponent } from './components/msp-register-organization/msp-register-organization.component';
 import { MspRegisterAccessAdminsComponent } from './components/msp-register-access-admins/msp-register-access-admins.component';
 import { MspRegisterAuthorizeComponent } from './components/msp-register-authorize/msp-register-authorize.component';
@@ -23,7 +22,6 @@ import { MspRegisterH2WithPrintComponent } from './common/h2-with-print/h2-with-
     declarations: [
         MspRegisterComponent,
         MspRegisterH2WithPrintComponent,
-
         MspRegisterUserComponent,
         MspRegisterOrganizationComponent,
         MspRegisterAccessAdminsComponent,

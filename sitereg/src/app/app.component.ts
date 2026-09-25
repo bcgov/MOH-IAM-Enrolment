@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SplashPageService } from './modules/splash-page/splash-page.service';
 import { environment } from '../environments/environment';
 import * as version from '../version.GENERATED';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { GlobalConfigService } from '../app/shared/services/global-config.service';
 
 @Component({
     standalone: false,

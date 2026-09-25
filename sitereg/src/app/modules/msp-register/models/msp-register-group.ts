@@ -1,9 +1,9 @@
 import { GenerateForm } from './generate-form';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { IMspGroup } from '@msp-register/interfaces';
+import { IMspGroup } from '../../msp-register/interfaces';
 import { groupNumberValidator } from './validator-helpers';
 import { ctFormControlString, ctFormControlBoolean } from './core/core-types';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { GlobalConfigService } from '../../../shared/services/global-config.service';
 
 export class MspRegisterGroup extends GenerateForm<IMspGroup>
     implements IMspGroup {

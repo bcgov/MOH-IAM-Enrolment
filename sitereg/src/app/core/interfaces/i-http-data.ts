@@ -1,7 +1,3 @@
-// import { PayloadInterface } from '@core/models/api.models';
-
-//#region Core / Common
-
 export interface ICoreUserDef {
 
     first_name: string;

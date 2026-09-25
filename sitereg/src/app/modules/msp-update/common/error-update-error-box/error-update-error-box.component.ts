@@ -9,7 +9,7 @@ import {
     isRequiredError,
     validFormControl,
     validMultiFormControl,
-} from 'src/app/modules/msp-update/common/validators';
+} from '../../../../modules/msp-update/common/validators';
 
 @Component({
     standalone: false,

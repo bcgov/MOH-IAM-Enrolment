@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { MspRegisterOrganizationComponent } from '@msp-register/components/msp-register-organization/msp-register-organization.component';
+import { MspRegisterOrganizationComponent } from '../msp-register/components/msp-register-organization/msp-register-organization.component';
 // tslint:disable-next-line: max-line-length
-import { MspRegisterSigningAuthorityComponent } from '@msp-register/components/msp-register-signing-authority/msp-register-signing-authority.component';
-import { MspRegisterAccessAdminsComponent } from '@msp-register/components/msp-register-access-admins/msp-register-access-admins.component';
-import { MspRegisterUsersComponent } from '@msp-register/components/msp-register-users/msp-register-users.component';
-import { MspRegisterGroupComponent } from '@msp-register/components/msp-register-group/msp-register-group.component';
-import { MspRegisterAuthorizeComponent } from '@msp-register/components/msp-register-authorize/msp-register-authorize.component';
+import { MspRegisterSigningAuthorityComponent } from '../msp-register/components/msp-register-signing-authority/msp-register-signing-authority.component';
+import { MspRegisterAccessAdminsComponent } from '../msp-register/components/msp-register-access-admins/msp-register-access-admins.component';
+import { MspRegisterUsersComponent } from '../msp-register/components/msp-register-users/msp-register-users.component';
+import { MspRegisterGroupComponent } from '../msp-register/components/msp-register-group/msp-register-group.component';
+import { MspRegisterAuthorizeComponent } from '../msp-register/components/msp-register-authorize/msp-register-authorize.component';
 import { MSP_REGISTER_ROUTES } from './constants';
 import { MspRegisterAutofillComponent } from './components/autofill/autofill.component';
 import { MspRegisterConfirmationComponent } from './components/msp-register-confirmation/msp-register-confirmation.component';

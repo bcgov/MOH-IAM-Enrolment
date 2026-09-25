@@ -6,8 +6,8 @@ import {
     IMspGroup,
     IMspSigningAuthority,
     IUser,
-} from '@msp-register/interfaces';
-import { IMspAccessAdmin } from '@msp-register/interfaces/i-msp-access-admins';
+} from '../../msp-register/interfaces';
+import { IMspAccessAdmin } from '../../msp-register/interfaces/i-msp-access-admins';
 import {
     IOrgInformationDef,
     IUserDef,
@@ -19,13 +19,13 @@ import {
     ICoreUserMspDef,
     IMspGroupDef,
     ISiteRegRequest,
-} from '@core/interfaces/i-http-data';
+} from '../../../core/interfaces/i-http-data';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
-import { IUserMsp } from '@msp-register/interfaces/base/i-user-msp';
-import { IMspUser } from '@msp-register/interfaces/i-msp-user';
-import { funcRandomNumber7Digit } from '@msp-register/constants';
-import { isValidOptionalField, trimText } from '@msp-register/models/validator-helpers';
+import { IUserMsp } from '../../msp-register/interfaces/base/i-user-msp';
+import { IMspUser } from '../../msp-register/interfaces/i-msp-user';
+import { funcRandomNumber7Digit } from '../../msp-register/constants';
+import { isValidOptionalField, trimText } from '../../msp-register/models/validator-helpers';
 
 const apiUrl = environment.baseAPIUrl;
 

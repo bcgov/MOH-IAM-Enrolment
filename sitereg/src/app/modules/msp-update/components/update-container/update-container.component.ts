@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Container } from 'moh-common-lib-angular';
 import { Router } from '@angular/router';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { GlobalConfigService } from '../../../../shared/services/global-config.service';
 import { routes } from '../../routing/routes';
 import { MspDirectUpdateProgressService } from '../../services/progress.service';
-import { funcRemoveStrings } from '@msp-register/constants';
-import { LoggerService } from '@shared/services/logger.service';
+import { funcRemoveStrings } from '../../../msp-register/constants';
+import { LoggerService } from '../../../../shared/services/logger.service';
 
 @Component({
     standalone: false,

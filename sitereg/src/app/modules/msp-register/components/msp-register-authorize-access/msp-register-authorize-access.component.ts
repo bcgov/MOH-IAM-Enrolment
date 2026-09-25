@@ -10,7 +10,7 @@ import { FormControl } from '@angular/forms';
 import {
     validFormControl,
     validMultiFormControl,
-} from '@msp-register/models/validator-helpers';
+} from '../../../msp-register/models/validator-helpers';
 
 @Component({
     standalone: false,

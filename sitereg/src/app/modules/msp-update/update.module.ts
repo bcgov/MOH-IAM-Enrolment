@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '@shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { CaptchaModule } from 'moh-common-lib-angular/captcha';
 import { MspDirectUpdateRoutesModule } from './routing/routes.module';
 import { MspDirectUpdateComponent } from './components/update-container/update-container.component';
