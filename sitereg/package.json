@@ -8,8 +8,7 @@
     "prebuild": "node ./src/version.js",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
-    "test:coverage": "ng test --watch=false --code-coverage --browsers=ChromeHeadless"
+    "lint": "ng lint"
   },
   "private": true,
   "engines": {
