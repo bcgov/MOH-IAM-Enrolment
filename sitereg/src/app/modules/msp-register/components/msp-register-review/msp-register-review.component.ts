@@ -63,7 +63,7 @@ export class MspRegisterReviewComponent implements OnInit {
         this.registrationService.setItemComplete();
 
         // REMOVEME debug-only
-        this.debugOnly();
+        // this.debugOnly();
 
         this.router.navigate([MSP_REGISTER_ROUTES.AUTHORIZE.fullpath]);
     }
@@ -83,17 +83,17 @@ export class MspRegisterReviewComponent implements OnInit {
     }
     
     // REMOVEME - debug only
-    debugOnly() {
-        if (this.globalConfigSvc.currentEnironment.production === false) {
-            console.log(
-                `%c review <= %o\n\t%o`,
-                'color:lightgreen',
-                funcRemoveStrings(
-                    ['MspRegister', 'Component'],
-                    this.constructor.name
-                ),
-            );
-        }
-    }
+    // debugOnly() {
+    //     if (this.globalConfigSvc.currentEnironment.production === false) {
+    //         console.log(
+    //             `%c review <= %o\n\t%o`,
+    //             'color:lightgreen',
+    //             funcRemoveStrings(
+    //                 ['MspRegister', 'Component'],
+    //                 this.constructor.name
+    //             ),
+    //         );
+    //     }
+    // }
     
 }

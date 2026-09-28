@@ -225,7 +225,7 @@ export class MspRegisterAuthorizeComponent implements OnInit {
     getGroupsInfo() {
         // Msp Groups
         const mspGroups: IMspGroup[] = [];
-        this.mspRegisterStateSvc.mspRegisterGroupForm.forEach((v) =>
+        this.mspRegisterStateSvc?.mspRegisterGroupForm.forEach((v) =>
             v.value ? mspGroups.push(v.value) : ''
         );
         return mspGroups;
@@ -265,7 +265,7 @@ export class MspRegisterAuthorizeComponent implements OnInit {
 
         // Msp Groups
         const mspGroups: IMspGroup[] = [];
-        this.mspRegisterStateSvc.mspRegisterGroupForm.forEach((v) =>
+        this.mspRegisterStateSvc?.mspRegisterGroupForm.forEach((v) =>
             v.value ? mspGroups.push(v.value) : ''
         );
         this.groupsMSP = mspGroups;
@@ -380,7 +380,7 @@ export class MspRegisterAuthorizeComponent implements OnInit {
 
             // Msp Groups
             const mspGroups: IMspGroup[] = [];
-            this.mspRegisterStateSvc.mspRegisterGroupForm.forEach((v) =>
+            this.mspRegisterStateSvc?.mspRegisterGroupForm.forEach((v) =>
                 v.value ? mspGroups.push(v.value) : ''
             );
             this.groupsMSP = mspGroups;
