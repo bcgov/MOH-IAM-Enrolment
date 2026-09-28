@@ -8,7 +8,8 @@
     "prebuild": "node ./src/version.js",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "test:coverage": "ng test --watch=false --code-coverage --browsers=ChromeHeadless"
   },
   "private": true,
   "engines": {
@@ -53,6 +54,10 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~19.2.27",
+    "@angular-eslint/builder": "^19.8.1",
+    "@angular-eslint/eslint-plugin": "^19.8.1",
+    "@angular-eslint/eslint-plugin-template": "^19.8.1",
+    "@angular-eslint/template-parser": "^19.8.1",
     "@angular/cli": "~19.2.25",
     "@angular/compiler-cli": "~19.2.25",
     "@angular/language-service": "~19.2.25",
@@ -60,8 +65,7 @@
     "@types/jasminewd2": "~2.0.13",
     "@types/node": "~26.5.1",
     "angular-eslint": "19.8.1",
-    "codelyzer": "~6.0.2",
-    "eslint": "^9.28.0",
+    "eslint": "^9.39.5",
     "jasmine": "^7.0.0",
     "jasmine-core": "~7.0.2",
     "jasmine-json-test-reporter": "^1.0.0-beta",
@@ -69,6 +73,7 @@
     "jasmine-spec-reporter": "~7.0.0",
     "karma": "~6.4.4",
     "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "^2.2.1",
     "karma-coverage-istanbul-reporter": "~3.0.3",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "^2.3.0",

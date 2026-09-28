@@ -23,7 +23,6 @@ import { MspRegisterApiService } from '../../../../shared/services/api.service';
 import { LoggerService, LogMessage } from '../../../../shared/services/logger.service';
 import { GlobalConfigService } from '../../../../shared/services/global-config.service';
 import {
-    funcRemoveStrings,
     funcRandomNumber8Digit,
     MSP_REGISTER_ROUTES,
 } from '../../../msp-register/constants';
@@ -61,7 +60,6 @@ export class MspRegisterAuthorizeComponent implements OnInit {
     showCaptcha = false;
     validCaptch = false;
     isProcessing = false;
-    name: string;
 
     public get signingAuthority(): IMspSigningAuthority {
         return this.mspRegisterStateSvc.signingAuthority;
@@ -93,7 +91,6 @@ export class MspRegisterAuthorizeComponent implements OnInit {
     ngOnInit() {
         this.registrationService.setItemIncomplete();
         this.fg = this.mspRegisterStateSvc.mspRegisterAuthorizeForm;
-        this.mspRegDataSvc.updateSigningAuthorityName(this.name);
         this.adminFgs = this.mspRegisterStateSvc.mspRegisterAccessAdminsForm;
         this.userFgs = this.mspRegisterStateSvc.mspRegisterUsersForm;
 

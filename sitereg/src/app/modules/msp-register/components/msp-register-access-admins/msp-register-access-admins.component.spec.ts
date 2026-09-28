@@ -3,6 +3,7 @@ import { MspRegisterAccessAdminsComponent } from './msp-register-access-admins.c
 import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from '../../../../shared/shared.module';
 import { MspRegisterStateService } from '../../../msp-register/services/msp-register-state.service';
+import { MspRegisterUsersComponent } from '../msp-register-users/msp-register-users.component';
 
 describe('MspRegisterAccessAdminsComponent', () => {
     let component: MspRegisterAccessAdminsComponent;
@@ -13,6 +14,7 @@ describe('MspRegisterAccessAdminsComponent', () => {
             imports: [RouterTestingModule, SharedModule],
             providers: [MspRegisterStateService],
             declarations: [
+                MspRegisterUsersComponent,
                 MspRegisterAccessAdminsComponent
             ],
         }).compileComponents();
