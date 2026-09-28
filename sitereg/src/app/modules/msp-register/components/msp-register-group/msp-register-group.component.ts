@@ -7,10 +7,7 @@ import { MspRegisterDataService } from '../../../msp-register/services/msp-regis
 import { IMspGroup, IMspOrganization } from '../../../msp-register/interfaces';
 import { LoggerService } from '../../../../shared/services/logger.service';
 import { GlobalConfigService } from '../../../../shared/services/global-config.service';
-import {
-    funcRemoveStrings,
-    MSP_REGISTER_ROUTES,
-} from '../../../msp-register/constants';
+import { MSP_REGISTER_ROUTES } from '../../../msp-register/constants';
 import { MspRegistrationService } from '../../../msp-register/msp-registration.service';
 import { environment } from '../../../../../environments/environment';
 
@@ -43,10 +40,10 @@ export class MspRegisterGroupComponent implements OnInit {
         this.updateFormGroups();
         this.addDefaultFormGroup();
         this.validFormControl = validMultiFormControl.bind(this);
+        this.validFormGroup = this.mspRegisterStateSvc.MspRegisterGroupFormNumbersContinueValid;
     }
 
     ngOnInit() {
-        this.validFormGroup = this.mspRegisterStateSvc.MspRegisterGroupFormNumbersContinueValid;
         this.registrationService.setItemIncomplete();
     }
 

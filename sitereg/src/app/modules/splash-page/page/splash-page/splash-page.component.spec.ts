@@ -1,8 +1,8 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SplashPageComponent } from './splash-page.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CoreModule } from '../../../../core/core.module';
 
 describe('SplashPageComponent', () => {
     let component: SplashPageComponent;
@@ -11,7 +11,7 @@ describe('SplashPageComponent', () => {
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [SplashPageComponent],
-            imports: [HttpClientTestingModule, RouterTestingModule],
+            imports: [HttpClientTestingModule, RouterTestingModule, CoreModule],
         }).compileComponents();
     }));
 

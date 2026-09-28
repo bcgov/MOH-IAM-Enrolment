@@ -9,10 +9,7 @@ import { cAdministeringFor } from '../../../msp-register/models/core/core-types'
 import { BehaviorSubject } from 'rxjs';
 import { LoggerService } from '../../../../shared/services/logger.service';
 import { GlobalConfigService } from '../../../../shared/services/global-config.service';
-import {
-    funcRemoveStrings,
-    MSP_REGISTER_ROUTES,
-} from '../../../msp-register/constants';
+import { MSP_REGISTER_ROUTES } from '../../../msp-register/constants';
 import { MspRegistrationService } from '../../../msp-register/msp-registration.service';
 import { environment } from '../../../../../environments/environment';
 
@@ -44,10 +41,10 @@ export class MspRegisterAccessAdminsComponent implements OnInit {
     ) {
         this.updateFormGroups();
         this.validFormControl = validMultiFormControl.bind(this);
+        this.validFormGroup = this.mspRegisterStateSvc.MspRegisterAccessAdminisContinueValid;
     }
 
     ngOnInit() {
-        this.validFormGroup = this.mspRegisterStateSvc.MspRegisterAccessAdminisContinueValid;
         this.registrationService.setItemIncomplete();
     }
 

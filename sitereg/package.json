@@ -7,7 +7,7 @@
     "dev": "ng serve --host 0.0.0.0 -o",
     "prebuild": "node ./src/version.js",
     "build": "ng build",
-    "test": "ng test",
+    "test": "CHROME_BIN=/snap/bin/chromium ng test",
     "lint": "ng lint",
     "test:coverage": "ng test --watch=false --code-coverage --browsers=ChromeHeadless"
   },

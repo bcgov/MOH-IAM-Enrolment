@@ -8,10 +8,7 @@ import { validMultiFormControl } from '../../../msp-register/models/validator-he
 import { IMspUser } from '../../../msp-register/interfaces/i-msp-user';
 import { cAdministeringFor } from '../../models/core/core-types';
 import { LoggerService } from '../../../../shared/services/logger.service';
-import {
-    funcRemoveStrings,
-    MSP_REGISTER_ROUTES,
-} from '../../../msp-register/constants';
+import { MSP_REGISTER_ROUTES } from '../../../msp-register/constants';
 import { GlobalConfigService } from '../../../../shared/services/global-config.service';
 import { MspRegistrationService } from '../../../msp-register/msp-registration.service';
 import { environment } from '../../../../../environments/environment';
@@ -44,10 +41,10 @@ export class MspRegisterUsersComponent implements OnInit {
     ) {
         this.updateFormGroups();
         this.validFormControl = validMultiFormControl.bind(this);
+        this.validateFormGroup = this.mspRegisterStateSvc.validFormGroup;
     }
 
     ngOnInit() {
-        this.validateFormGroup = this.mspRegisterStateSvc.validFormGroup;
         this.registrationService.setItemIncomplete();
     }
 

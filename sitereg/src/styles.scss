@@ -19,7 +19,7 @@
 // Comment out unused component styles, so they won't be bundled in final CSS.
 // If they're ever used in the future we can just un-comment.
 
-@import "variables.scss";
+@import "app/styles/variables";
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome/scss/variables";
 @import "font-awesome/scss/mixins";

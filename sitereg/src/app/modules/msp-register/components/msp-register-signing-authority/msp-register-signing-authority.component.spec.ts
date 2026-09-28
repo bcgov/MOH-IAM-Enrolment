@@ -2,7 +2,9 @@ import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MspRegisterSigningAuthorityComponent } from './msp-register-signing-authority.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from '../../../../shared/shared.module';
-import { MspRegisterUsersComponent } from '../msp-register-users/msp-register-users.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MspRegisterUserMspComponent } from '../core/msp-register-user-msp/msp-register-user-msp.component';
+import { MspRegisterUserComponent } from '../core/msp-register-user/msp-register-user.component';
 
 describe('MspRegisterSigningAuthorityComponent', () => {
     let component: MspRegisterSigningAuthorityComponent;
@@ -10,11 +12,12 @@ describe('MspRegisterSigningAuthorityComponent', () => {
 
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
-            imports: [RouterTestingModule, SharedModule],
             declarations: [
-                MspRegisterUsersComponent,
+                MspRegisterUserComponent,
+                MspRegisterUserMspComponent,
                 MspRegisterSigningAuthorityComponent
             ],
+            imports: [RouterTestingModule, SharedModule, HttpClientTestingModule],
         }).compileComponents();
     }));
 
