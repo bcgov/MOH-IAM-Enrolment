@@ -16,6 +16,7 @@ const defaultRoutes: Routes = [
     {
         path: '',
         redirectTo: ROUTES_UPDATE.REQUESTOR.path,
+        pathMatch: 'full'
     },
     {
         // path: 'requestor',

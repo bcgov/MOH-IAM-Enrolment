@@ -6,7 +6,6 @@ import { MspRegisterUsersComponent } from '../msp-register/components/msp-regist
 import { MspRegisterGroupComponent } from '../msp-register/components/msp-register-group/msp-register-group.component';
 import { MspRegisterAuthorizeComponent } from '../msp-register/components/msp-register-authorize/msp-register-authorize.component';
 import { MSP_REGISTER_ROUTES } from './constants';
-import { MspRegisterAutofillComponent } from './components/autofill/autofill.component';
 import { MspRegisterConfirmationComponent } from './components/msp-register-confirmation/msp-register-confirmation.component';
 import { MspRegisterReviewComponent } from './components/msp-register-review/msp-register-review.component';
 
@@ -14,6 +13,7 @@ export const subRoutes: Routes = [
     {
         path: '',
         redirectTo: MSP_REGISTER_ROUTES.ORGANIZATION.path,
+        pathMatch: 'full'
     },
     {
         // path: 'organization',
