@@ -2,7 +2,7 @@ import { GenerateForm } from './generate-form';
 import {
     IMspOrganization,
     IMspSigningAuthority,
-} from '@msp-register/interfaces';
+} from '../../msp-register/interfaces';
 import { FormControl, FormBuilder, Validators } from '@angular/forms';
 import {
     ctFormControlString,
@@ -10,7 +10,7 @@ import {
     ctFormControlUserTitle,
     cUserMspValidators,
 } from './core/core-types';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { GlobalConfigService } from '../../../shared/services/global-config.service';
 
 export class MspRegisterSigningAuthority
     extends GenerateForm<IMspSigningAuthority>

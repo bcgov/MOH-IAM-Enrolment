@@ -8,6 +8,7 @@ import * as interfaceObjects from '../shared/i-access-admin';
 import * as common from '../../../common/update-json-map';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-update-access-admin-review',
     templateUrl: './access-admin-review.component.html',
     styleUrls: ['./access-admin-review.component.scss'],

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { UpdatePerson } from '@core/models/person.model';
+import { UpdatePerson } from '../../../core/models/person.model';
 import { FormGroup, FormArray } from '@angular/forms';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../environments/environment';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({

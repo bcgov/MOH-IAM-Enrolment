@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '@shared/shared.module';
-import { CaptchaModule } from 'moh-common-lib/captcha';
+import { SharedModule } from '../../shared/shared.module';
+import { CaptchaModule } from 'moh-common-lib-angular/captcha';
 import { MspDirectUpdateRoutesModule } from './routing/routes.module';
 import { MspDirectUpdateComponent } from './components/update-container/update-container.component';
 import {
@@ -55,7 +55,7 @@ import {
     AbstractPgCheckService,
     RouteGuardService,
     SharedCoreModule,
-} from 'moh-common-lib';
+} from 'moh-common-lib-angular';
 import { RouterModule } from '@angular/router';
 
 import { MspRegisterModule } from '../msp-register/msp-register.module';

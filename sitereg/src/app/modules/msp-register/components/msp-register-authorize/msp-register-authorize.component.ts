@@ -3,37 +3,37 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {
     MspRegisterStateService,
     UserTypes,
-} from '@msp-register/services/msp-register-state.service';
-import { MspRegisterDataService } from '@msp-register/services/msp-register-data.service';
-import { validFormControl } from '@msp-register/models/validator-helpers';
+} from '../../../msp-register/services/msp-register-state.service';
+import { MspRegisterDataService } from '../../../msp-register/services/msp-register-data.service';
+import { validFormControl } from '../../../msp-register/models/validator-helpers';
 import {
     IMspGroupDef,
     IUserDef,
     IAccessAdministratorDef,
-} from '@core/interfaces/i-http-data';
+} from '../../../../core/interfaces/i-http-data';
 import {
     IMspGroup,
     IMspSigningAuthority,
     IMspOrganization,
-} from '@msp-register/interfaces';
-import { IMspUser } from '@msp-register/interfaces/i-msp-user';
-import { IMspAccessAdmin } from '@msp-register/interfaces/i-msp-access-admins';
+} from '../../../msp-register/interfaces';
+import { IMspUser } from '../../../msp-register/interfaces/i-msp-user';
+import { IMspAccessAdmin } from '../../../msp-register/interfaces/i-msp-access-admins';
 import { Router } from '@angular/router';
-import { MspRegisterApiService } from '@shared/services/api.service';
-import { LoggerService, LogMessage } from '@shared/services/logger.service';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { MspRegisterApiService } from '../../../../shared/services/api.service';
+import { LoggerService, LogMessage } from '../../../../shared/services/logger.service';
+import { GlobalConfigService } from '../../../../shared/services/global-config.service';
 import {
-    funcRemoveStrings,
     funcRandomNumber8Digit,
     MSP_REGISTER_ROUTES,
-} from '@msp-register/constants';
-import { MspRegistrationService } from '@msp-register/msp-registration.service';
-import { environment } from 'src/environments/environment.prod';
-// import {  } from 'moh-common-lib/captcha';
+} from '../../../msp-register/constants';
+import { MspRegistrationService } from '../../../msp-register/msp-registration.service';
+import { environment } from '../../../../../environments/environment';
+// import {  } from 'moh-common-lib-angular/captcha';
 
 export type AccessType = 'admin' | 'user';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-register-authorize',
     templateUrl: './msp-register-authorize.component.html',
     styleUrls: ['./msp-register-authorize.component.scss'],
@@ -89,19 +89,8 @@ export class MspRegisterAuthorizeComponent implements OnInit {
     }
 
     ngOnInit() {
-        // console.log(
-        //     `%c%o : %o`,
-        //     'color:green',
-        //     funcRemoveStrings(
-        //         ['MspRegister', 'Component'],
-        //         this.constructor.name
-        //     ).toUpperCase(),
-        //     this.globalConfigSvc.applicationId
-        // );
         this.registrationService.setItemIncomplete();
-
         this.fg = this.mspRegisterStateSvc.mspRegisterAuthorizeForm;
-        this.mspRegDataSvc.updateSigningAuthorityName(name);
         this.adminFgs = this.mspRegisterStateSvc.mspRegisterAccessAdminsForm;
         this.userFgs = this.mspRegisterStateSvc.mspRegisterUsersForm;
 
@@ -118,26 +107,8 @@ export class MspRegisterAuthorizeComponent implements OnInit {
             this.globalConfigSvc.applicationId
             }`
         );
-
         this.registrationService.setItemComplete();
-
-        // REMOVEME debug-only
-        // this.debugOnly();
-
         const middleWareObject = this.registerationObject();
-
-        // console.log(
-        //     `%c middleware object <= %o\n\t%o`,
-        //     'color:lightgreen',
-        //     funcRemoveStrings(
-        //         ['MspRegister', 'Component'],
-        //         this.constructor.name
-        //     ),
-        //     middleWareObject
-        // );
-
-        // this.copyJsonSchema(middleWareObject);
-
         this.mspRegDataSvc.requestFinalStatus = null;
         const requestStatus = {
             referenceId: null,
@@ -254,7 +225,7 @@ export class MspRegisterAuthorizeComponent implements OnInit {
     getGroupsInfo() {
         // Msp Groups
         const mspGroups: IMspGroup[] = [];
-        this.mspRegisterStateSvc.mspRegisterGroupForm.forEach((v) =>
+        this.mspRegisterStateSvc?.mspRegisterGroupForm.forEach((v) =>
             v.value ? mspGroups.push(v.value) : ''
         );
         return mspGroups;
@@ -294,7 +265,7 @@ export class MspRegisterAuthorizeComponent implements OnInit {
 
         // Msp Groups
         const mspGroups: IMspGroup[] = [];
-        this.mspRegisterStateSvc.mspRegisterGroupForm.forEach((v) =>
+        this.mspRegisterStateSvc?.mspRegisterGroupForm.forEach((v) =>
             v.value ? mspGroups.push(v.value) : ''
         );
         this.groupsMSP = mspGroups;
@@ -409,7 +380,7 @@ export class MspRegisterAuthorizeComponent implements OnInit {
 
             // Msp Groups
             const mspGroups: IMspGroup[] = [];
-            this.mspRegisterStateSvc.mspRegisterGroupForm.forEach((v) =>
+            this.mspRegisterStateSvc?.mspRegisterGroupForm.forEach((v) =>
                 v.value ? mspGroups.push(v.value) : ''
             );
             this.groupsMSP = mspGroups;

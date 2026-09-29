@@ -7,6 +7,7 @@ import { UpdateStateService } from '../../../services/update.state.service';
 import * as interfaceObjects from '../shared/i-organization';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-update-organization-review',
     templateUrl: './organization-review.component.html',
     styleUrls: ['./organization-review.component.scss'],

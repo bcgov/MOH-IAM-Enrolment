@@ -11,7 +11,6 @@
 
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
-// tslint:disable-next-line: no-namespace
 export namespace Convert {
     export function toCoordinate(json: string): any {
         return cast(JSON.parse(json), 'any');
@@ -52,21 +51,18 @@ export namespace Convert {
     }
 
     function transform(valc: any, typc: any, getProps: any): any {
-        // tslint:disable-next-line: no-shadowed-variable
-        function transformPrimitive(typ: string, val: any): any {
+               function transformPrimitive(typ: string, val: any): any {
             if (typeof typ === typeof val) {
                 return val;
             }
             return invalidValue(typ, val);
         }
 
-        // tslint:disable-next-line: no-shadowed-variable
-        function transformUnion(typs: any[], val: any): any {
+               function transformUnion(typs: any[], val: any): any {
             // val must validate against one typ in typs
             const l = typs.length;
             for (let i = 0; i < l; i++) {
-                // tslint:disable-next-line: no-shadowed-variable
-                const typ = typs[i];
+                               const typ = typs[i];
                 try {
                     return transform(val, typ, getProps);
                 } catch (_) {}
@@ -74,16 +70,14 @@ export namespace Convert {
             return invalidValue(typs, val);
         }
 
-        // tslint:disable-next-line: no-shadowed-variable
-        function transformEnum(cases: string[], val: any): any {
+               function transformEnum(cases: string[], val: any): any {
             if (cases.indexOf(val) !== -1) {
                 return val;
             }
             return invalidValue(cases, val);
         }
 
-        // tslint:disable-next-line: no-shadowed-variable
-        function transformArray(typ: any, val: any): any {
+               function transformArray(typ: any, val: any): any {
             // val must be an array with no invalid elements
             if (!Array.isArray(val)) {
                 return invalidValue('array', val);
@@ -91,8 +85,7 @@ export namespace Convert {
             return val.map((el) => transform(el, typ, getProps));
         }
 
-        // tslint:disable-next-line: no-shadowed-variable
-        function transformDate(typ: any, val: any): any {
+               function transformDate(typ: any, val: any): any {
             if (val === null) {
                 return null;
             }
@@ -103,9 +96,8 @@ export namespace Convert {
             return d;
         }
 
-        // tslint:disable-next-line: no-shadowed-variable
-        function transformObject(
-            props: { [k: string]: any },
+               function transformObject(
+            props: Record<string, any>,
             additional: any,
             val: any
         ): any {
@@ -141,8 +133,7 @@ export namespace Convert {
             return invalidValue(typc, valc);
         }
         while (typeof typc === 'object' && typc.ref !== undefined) {
-            // tslint:disable-next-line: no-use-before-declare
-            typc = typeMap[typc.ref];
+                       typc = typeMap[typc.ref];
         }
         if (Array.isArray(typc)) {
             return transformEnum(typc, valc);

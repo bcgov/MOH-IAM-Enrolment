@@ -108,3 +108,4 @@ params-*.txt
 lib
 build/
 dist/
+.angular/

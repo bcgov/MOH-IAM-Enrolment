@@ -10,9 +10,10 @@ import { FormControl } from '@angular/forms';
 import {
     validFormControl,
     validMultiFormControl,
-} from '@msp-register/models/validator-helpers';
+} from '../../../msp-register/models/validator-helpers';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-register-authorize-access',
     templateUrl: './msp-register-authorize-access.component.html',
     styleUrls: ['./msp-register-authorize-access.component.scss'],

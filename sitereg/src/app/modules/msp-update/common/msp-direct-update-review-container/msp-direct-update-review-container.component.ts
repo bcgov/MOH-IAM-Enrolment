@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ROUTES_UPDATE } from '../../routing/routes.constants';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-update-review-container',
     templateUrl: './msp-direct-update-review-container.component.html',
     styleUrls: ['./msp-direct-update-review-container.component.scss'],

@@ -2,10 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SplashPageService } from '../../splash-page.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import * as moment from 'moment';
 import { environment } from './../../../../../environments/environment';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-splash-page',
     templateUrl: './splash-page.component.html',
     styleUrls: ['./splash-page.component.scss'],

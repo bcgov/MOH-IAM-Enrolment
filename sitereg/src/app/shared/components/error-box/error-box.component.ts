@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-error-box',
     templateUrl: './error-box.component.html',
     styleUrls: ['./error-box.component.scss'],

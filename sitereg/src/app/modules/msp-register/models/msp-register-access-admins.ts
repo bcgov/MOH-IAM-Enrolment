@@ -1,4 +1,4 @@
-import { IMspAccessAdmin } from '@msp-register/interfaces/i-msp-access-admins';
+import { IMspAccessAdmin } from '../../msp-register/interfaces/i-msp-access-admins';
 import { GenerateForm } from './generate-form';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import {

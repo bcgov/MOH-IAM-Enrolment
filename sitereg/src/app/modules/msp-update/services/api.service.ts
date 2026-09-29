@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
-import { AbstractHttpService } from 'moh-common-lib';
+import { AbstractHttpService } from 'moh-common-lib-angular';
 import {
     HttpHeaders,
     HttpClient,
     HttpErrorResponse,
 } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
-import * as moment from 'moment';
-import { UUID } from 'angular2-uuid';
-
-import { PayloadInterface } from '@core/models/api-base.model';
-import { environment } from '../../../../environments/environment.prod';
-import { ISiteRegRequest } from '@core/interfaces/i-http-data';
+import moment from 'moment';
+import { PayloadInterface } from '../../../core/models/api-base.model';
+import { environment } from '../../../../environments/environment';
 import { LoggerService } from '../../../shared/services/logger.service';
 import { GlobalConfigService } from '../../../shared/services/global-config.service';
 import { UpdateStateService } from './update.state.service';
@@ -29,14 +26,11 @@ export class MspUpdateApiService extends AbstractHttpService {
      *  Default hardcoded header values.  Note: Authentication headers are added
      *  at runtime in the httpOptions() method.
      */
-    // tslint:disable-next-line: variable-name
-    protected _headers: HttpHeaders = new HttpHeaders({
+       protected _headers: HttpHeaders = new HttpHeaders({
         'Cache-Control': 'private',
     });
-    // tslint:disable-next-line: variable-name
-    private _token: string;
-    // tslint:disable-next-line: variable-name
-    private _clientName = 'sitereg';
+       private _token: string;
+       private _clientName = 'sitereg';
     private apiURL: string;
 
     constructor(

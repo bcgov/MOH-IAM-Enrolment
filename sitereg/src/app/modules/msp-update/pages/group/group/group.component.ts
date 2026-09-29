@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { GlobalConfigService } from '../../../../../shared/services/global-config.service';
 import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 import { MspDirectUpdateProgressService } from '../../../services/progress.service';
-import { LoggerService } from '@shared/services/logger.service';
+import { LoggerService } from '../../../../../shared/services/logger.service';
 import {
     UpdateStateService,
     FormStatusAddRemoveUpdate,
@@ -14,6 +14,7 @@ import { MspDirectUpdateGroupAddComponent } from '../group-add/group-add.compone
 import { MspDirectUpdateGroupEditComponent } from '../group-edit/group-edit.component';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-update-group',
     templateUrl: './group.component.html',
     styleUrls: ['./group.component.scss'],
@@ -100,8 +101,7 @@ export class MspDirectUpdateGroupComponent implements OnInit {
 
     //#region REMOVE
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateGroupRemoveComponent)
+       @ViewChild(MspDirectUpdateGroupRemoveComponent)
     formRemove: MspDirectUpdateGroupRemoveComponent;
 
     get formRemoveState(): FormGroup {
@@ -123,8 +123,7 @@ export class MspDirectUpdateGroupComponent implements OnInit {
 
     //#region Add
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateGroupAddComponent)
+       @ViewChild(MspDirectUpdateGroupAddComponent)
     formAdd: MspDirectUpdateGroupAddComponent;
 
     get formAddState(): FormGroup {
@@ -146,8 +145,7 @@ export class MspDirectUpdateGroupComponent implements OnInit {
 
     //#region Update
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateGroupEditComponent)
+       @ViewChild(MspDirectUpdateGroupEditComponent)
     formEdit: MspDirectUpdateGroupEditComponent;
 
     get formEditState(): FormGroup {

@@ -1,19 +1,20 @@
 import { Component, OnInit, Input, Output, EventEmitter, Optional, Self } from '@angular/core';
-import { Base } from 'moh-common-lib';
+import { Base } from 'moh-common-lib-angular';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 @Component({
+  standalone: false,
   selector: 'sitereg-msp-email',
   templateUrl: './email.component.html',
   styleUrls: ['./email.component.scss']
 })
 export class MspEmailComponent extends Base implements ControlValueAccessor {
 
-  @Input() disabled: boolean = false;
-  @Input() label: string = 'Email Address';
-  @Input() maxlen: string = '100';
+  @Input() disabled = false;
+  @Input() label = 'Email Address';
+  @Input() maxlen = '100';
   @Input() labelforId: string = 'email_' + this.objectId;
-  @Input() placeholder: string = 'username@example.com';
+  @Input() placeholder = 'username@example.com';
 
   @Input()
   set value( val: string ) {
@@ -28,7 +29,7 @@ export class MspEmailComponent extends Base implements ControlValueAccessor {
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
   @Output() blurEvent: EventEmitter<any> = new EventEmitter<any>();
 
-  public email: string = '';
+  public email = '';
 
   _onChange = (_: any) => {};
   _onTouched = (_: any) => {};

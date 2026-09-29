@@ -1,5 +1,5 @@
 import { CoreUser } from '../core/core-user';
-import { IMspUser } from '@msp-register/interfaces/i-msp-user';
+import { IMspUser } from '../../../msp-register/interfaces/i-msp-user';
 import { cUserValidators } from '../core/core-types';
 
 export class MspUser extends CoreUser implements IMspUser {

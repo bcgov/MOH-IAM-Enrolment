@@ -1,6 +1,6 @@
 import { ctFormControlBoolean, cUserMspValidators } from './core-types';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { IUserMsp } from '@msp-register/interfaces/base/i-user-msp';
+import { IUserMsp } from '../../../msp-register/interfaces/base/i-user-msp';
 import { CoreUser } from './core-user';
 
 /**

@@ -5,7 +5,7 @@ import {
     IAccessAdministratorDef,
     IUserDef,
     IMspGroupDef,
-} from '@core/interfaces/i-http-data';
+} from '../../core/interfaces/i-http-data';
 
 export interface ISiteRegRequest2 extends PayloadInterface {
     request_num: any;
@@ -18,8 +18,7 @@ export interface ISiteRegRequest2 extends PayloadInterface {
 }
 
 export class SiteRegRequest2 extends ServerPayload {
-    // tslint:disable: variable-name
-    request_num: any;
+       request_num: any;
     org_information: IOrgInformationDef;
     signing_authority_information: ISigningAuthorityDef;
     aa_same_as_sa: string; // ^[YN]$

@@ -1,4 +1,4 @@
-import { IProvinces, IProvince } from '@shared/interfaces/i-provinces';
+import { IProvinces, IProvince } from '../../shared/interfaces/i-provinces';
 
 const provincesData = [
     { country: 'CAN', provCode: 'AB', description: 'Alberta' },

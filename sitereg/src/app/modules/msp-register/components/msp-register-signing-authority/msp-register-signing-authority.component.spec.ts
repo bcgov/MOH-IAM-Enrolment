@@ -1,21 +1,23 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MspRegisterSigningAuthorityComponent } from './msp-register-signing-authority.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { SharedModule } from '@shared/shared.module';
-import { MspRegisterPersonComponent } from '../msp-register-person/msp-register-person.component';
+import { SharedModule } from '../../../../shared/shared.module';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MspRegisterUserMspComponent } from '../core/msp-register-user-msp/msp-register-user-msp.component';
+import { MspRegisterUserComponent } from '../core/msp-register-user/msp-register-user.component';
 
 describe('MspRegisterSigningAuthorityComponent', () => {
     let component: MspRegisterSigningAuthorityComponent;
     let fixture: ComponentFixture<MspRegisterSigningAuthorityComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
-            imports: [RouterTestingModule, SharedModule],
             declarations: [
-                MspRegisterSigningAuthorityComponent,
-                MspRegisterPersonComponent,
+                MspRegisterUserComponent,
+                MspRegisterUserMspComponent,
+                MspRegisterSigningAuthorityComponent
             ],
+            imports: [RouterTestingModule, SharedModule, HttpClientTestingModule],
         }).compileComponents();
     }));
 

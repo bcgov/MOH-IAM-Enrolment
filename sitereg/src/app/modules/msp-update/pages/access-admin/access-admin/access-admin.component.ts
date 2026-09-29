@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { MspDirectUpdateProgressService } from '../../../services/progress.service';
 import { ROUTES_UPDATE } from '../../../routing/routes.constants';
-import { funcRemoveStrings } from '@msp-register/constants';
-import { LoggerService } from '@shared/services/logger.service';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { funcRemoveStrings } from '../../../../msp-register/constants';
+import { LoggerService } from '../../../../../shared/services/logger.service';
+import { GlobalConfigService } from '../../../../../shared/services/global-config.service';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import {
     UpdateStateService,
@@ -15,6 +15,7 @@ import { MspDirectUpdateAccessAdministratorAddComponent } from '../access-admin-
 import { MspDirectUpdateAccessAdministratorEditComponent } from '../access-admin-edit/access-admin-edit.component';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-update-access-admin',
     templateUrl: './access-admin.component.html',
     styleUrls: ['./access-admin.component.scss'],
@@ -131,8 +132,7 @@ export class MspDirectUpdateAccessAdministratorComponent implements OnInit {
 
     //#region Edit
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateAccessAdministratorEditComponent)
+       @ViewChild(MspDirectUpdateAccessAdministratorEditComponent)
     formEdit: MspDirectUpdateAccessAdministratorEditComponent;
 
     get formEditState(): FormGroup {
@@ -153,8 +153,7 @@ export class MspDirectUpdateAccessAdministratorComponent implements OnInit {
 
     //#region Add
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateAccessAdministratorAddComponent)
+       @ViewChild(MspDirectUpdateAccessAdministratorAddComponent)
     formAdd: MspDirectUpdateAccessAdministratorAddComponent;
 
     get formAddState(): FormGroup {
@@ -175,8 +174,7 @@ export class MspDirectUpdateAccessAdministratorComponent implements OnInit {
 
     //#region REMOVE
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateAccessAdministratorRemoveComponent)
+       @ViewChild(MspDirectUpdateAccessAdministratorRemoveComponent)
     formRemove: MspDirectUpdateAccessAdministratorRemoveComponent;
 
     get formRemoveState(): FormGroup {

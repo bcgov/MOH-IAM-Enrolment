@@ -8,8 +8,8 @@ import {
 import { ROUTES_UPDATE } from '../../../routing/routes.constants';
 import { Router } from '@angular/router';
 import { MspDirectUpdateProgressService } from '../../../services/progress.service';
-import { LoggerService } from '@shared/services/logger.service';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { LoggerService } from '../../../../../shared/services/logger.service';
+import { GlobalConfigService } from '../../../../../shared/services/global-config.service';
 import { UpdateStateService } from '../../../services/update.state.service';
 import {
     cUpdateValidators,
@@ -18,9 +18,10 @@ import {
 
 import { getJSONofRequestor } from '../shared/requestor-json-map';
 import { IDataForm, RandomObjects } from '../../../common/i-dataform';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../../../environments/environment';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-update-requestor',
     templateUrl: './requestor.component.html',
     styleUrls: ['./requestor.component.scss'],

@@ -4,7 +4,7 @@ import {
     cUserValidators,
 } from './core-types';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { IUser } from '@msp-register/interfaces';
+import { IUser } from '../../../msp-register/interfaces';
 
 export class CoreUser implements IUser {
     userTitle?: ctFormControlUserTitle = null;

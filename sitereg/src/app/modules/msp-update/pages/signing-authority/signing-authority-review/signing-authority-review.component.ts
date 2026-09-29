@@ -8,6 +8,7 @@ import * as interfaceObjects from '../shared/i-signing-authority';
 import * as common from '../../../common/update-json-map';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-update-signing-authority-review',
     templateUrl: './signing-authority-review.component.html',
     styleUrls: ['./signing-authority-review.component.scss'],

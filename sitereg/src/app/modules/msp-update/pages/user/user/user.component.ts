@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { MspDirectUpdateProgressService } from '../../../services/progress.service';
 import { ROUTES_UPDATE } from '../../../routing/routes.constants';
-import { funcRemoveStrings } from '@msp-register/constants';
-import { LoggerService } from '@shared/services/logger.service';
-import { GlobalConfigService } from '@shared/services/global-config.service';
+import { funcRemoveStrings } from '../../../../msp-register/constants';
+import { LoggerService } from '../../../../../shared/services/logger.service';
+import { GlobalConfigService } from '../../../../../shared/services/global-config.service';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import {
     UpdateStateService,
@@ -15,6 +15,7 @@ import { MspDirectUpdateUserAddComponent } from '../user-add/user-add.component'
 import { MspDirectUpdateUserEditComponent } from '../user-edit/user-edit.component';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-msp-update-user',
     templateUrl: './user.component.html',
     styleUrls: ['./user.component.scss'],
@@ -131,8 +132,7 @@ export class MspDirectUpdateUserComponent implements OnInit {
 
     //#region Edit
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateUserEditComponent)
+       @ViewChild(MspDirectUpdateUserEditComponent)
     formEdit: MspDirectUpdateUserEditComponent;
 
     get formEditState(): FormGroup {
@@ -153,8 +153,7 @@ export class MspDirectUpdateUserComponent implements OnInit {
 
     //#region Add
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateUserAddComponent)
+       @ViewChild(MspDirectUpdateUserAddComponent)
     formAdd: MspDirectUpdateUserAddComponent;
 
     get formAddState(): FormGroup {
@@ -175,8 +174,7 @@ export class MspDirectUpdateUserComponent implements OnInit {
 
     //#region REMOVE
 
-    // tslint:disable-next-line: member-ordering
-    @ViewChild(MspDirectUpdateUserRemoveComponent)
+       @ViewChild(MspDirectUpdateUserRemoveComponent)
     formRemove: MspDirectUpdateUserRemoveComponent;
 
     get formRemoveState(): FormGroup {

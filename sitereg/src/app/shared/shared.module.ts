@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedCoreModule } from 'moh-common-lib';
-import { CaptchaModule } from 'moh-common-lib/captcha';
+import { SharedCoreModule } from 'moh-common-lib-angular';
+import { CaptchaModule } from 'moh-common-lib-angular/captcha';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ErrorBoxComponent } from './components/error-box/error-box.component';
 import { GlobalConfigService } from './services/global-config.service';

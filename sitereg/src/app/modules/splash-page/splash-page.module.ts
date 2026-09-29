@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { CoreModule } from '../../core/core.module';
+import { SharedCoreModule } from 'moh-common-lib-angular';
 import { SplashPageRoutingModule } from './splash-page-routing.module';
 import { SplashPageComponent } from './page/splash-page/splash-page.component';
 
 @NgModule({
-    imports: [CommonModule, SplashPageRoutingModule, CoreModule],
+    imports: [CommonModule, SplashPageRoutingModule, SharedCoreModule],
     declarations: [SplashPageComponent],
 })
 export class SplashPageModule {}

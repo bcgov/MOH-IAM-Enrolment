@@ -13,9 +13,10 @@ import {
 import { IDataForm, RandomObjects } from '../../../common/i-dataform';
 
 import { getAddJsonOfAccessAdministrator } from '../shared/access-admin-json-map';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../../../environments/environment';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-update-access-admin-add',
     templateUrl: './access-admin-add.component.html',
     styleUrls: ['./access-admin-add.component.scss'],

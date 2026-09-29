@@ -7,10 +7,11 @@ import {
     formControlValidity,
 } from '../../../common/update-validators';
 import { getRemoveJsonOfMspUser } from '../shared/user-shared-json-map';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../../../environments/environment';
 import { IDataForm, RandomObjects } from '../../../common/i-dataform';
 
 @Component({
+    standalone: false,
     selector: 'sitereg-update-user-remove',
     templateUrl: './user-remove.component.html',
     styleUrls: ['./user-remove.component.scss'],
