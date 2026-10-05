@@ -1,6 +1,6 @@
 {
   "name": "moh-sitereg",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --port 4200 -o --disable-host-check",
@@ -9,7 +9,8 @@
     "build": "ng build",
     "test": "CHROME_BIN=/snap/bin/chromium ng test",
     "lint": "ng lint",
-    "test:coverage": "ng test --watch=false --code-coverage --browsers=ChromeHeadless"
+    "test:coverage": "ng test --watch=false --code-coverage --browsers=ChromeHeadless",
+    "version": "node ./src/version.js"
   },
   "private": true,
   "engines": {
