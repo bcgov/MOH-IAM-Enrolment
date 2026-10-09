@@ -23,7 +23,6 @@ export class MspDirectUpdateRequestorReviewComponent implements AfterViewInit {
     }
 
     reviewItems() {
-        console.log('review', this.review);
         this.review.redirectPath = ROUTES_UPDATE.REQUESTOR.fullpath;
         this.review.header = ROUTES_UPDATE.REQUESTOR.title;
 
