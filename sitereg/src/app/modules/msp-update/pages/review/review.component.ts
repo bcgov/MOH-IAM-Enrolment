@@ -2,12 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UpdateStateService } from '../../services/update.state.service';
 import { ROUTES_UPDATE } from '../../routing/routes.constants';
-import { ReviewItemInterface } from '../../components/review-section/review-section.component';
 import { LoggerService } from '../../../../shared/services/logger.service';
 import { GlobalConfigService } from '../../../../shared/services/global-config.service';
 import { MspDirectUpdateProgressService } from '../../services/progress.service';
 import { funcRemoveStrings } from '../../../msp-register/constants';
-import { jsonPayLoadApplication } from '../submit/json-payload';
 
 @Component({
     standalone: false,
@@ -32,12 +30,9 @@ export class MspUpdateReviewComponent implements OnInit {
     private loggerSvc: LoggerService,
     private globalConfigSvc: GlobalConfigService,
     public updateStateService: UpdateStateService
-  ) {
-
-  }
+  ) {}
 
   ngOnInit() {
-    // console.log(`%c%o : %o`, 'color:green', this.componentInfo);
     this.progressService.setPageIncomplete();
   }
 
@@ -52,10 +47,4 @@ export class MspUpdateReviewComponent implements OnInit {
     this.progressService.setPageComplete();
     this.router.navigate([ROUTES_UPDATE.SUBMIT.fullpath]);
   }
-
-  // json() {
-  //   this.updateStateService.applicationId = this.globalConfigSvc.applicationId;
-  //   return jsonPayLoadApplication(this.updateStateService);
-  // }
-
 }
