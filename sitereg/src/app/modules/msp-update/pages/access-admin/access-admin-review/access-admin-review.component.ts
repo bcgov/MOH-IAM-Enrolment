@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import {
     MspDirectUpdateReviewContainerComponent
 } from '../../../common/msp-direct-update-review-container/msp-direct-update-review-container.component'; // prettier-ignore
@@ -13,7 +13,7 @@ import * as common from '../../../common/update-json-map';
     templateUrl: './access-admin-review.component.html',
     styleUrls: ['./access-admin-review.component.scss'],
 })
-export class MspDirectUpdateAccessAdminReviewComponent implements OnInit {
+export class MspDirectUpdateAccessAdminReviewComponent implements AfterViewInit {
     @ViewChild('add')
     add: MspDirectUpdateReviewContainerComponent;
     @ViewChild('remove')
@@ -23,7 +23,7 @@ export class MspDirectUpdateAccessAdminReviewComponent implements OnInit {
 
     constructor(public updateStateService: UpdateStateService) {}
 
-    ngOnInit() {
+    ngAfterViewInit() {
         this.reviewItems(common.actionType.Add, this.add);
         this.reviewItems(common.actionType.Edit, this.edit);
         this.reviewItems(common.actionType.Remove, this.remove);

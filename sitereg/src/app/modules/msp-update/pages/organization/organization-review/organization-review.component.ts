@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import {
     MspDirectUpdateReviewContainerComponent
 } from '../../../common/msp-direct-update-review-container/msp-direct-update-review-container.component'; // prettier-ignore
@@ -12,13 +12,13 @@ import * as interfaceObjects from '../shared/i-organization';
     templateUrl: './organization-review.component.html',
     styleUrls: ['./organization-review.component.scss'],
 })
-export class MspDirectUpdateOrganizationReviewComponent implements OnInit {
+export class MspDirectUpdateOrganizationReviewComponent implements AfterViewInit {
     @ViewChild(MspDirectUpdateReviewContainerComponent)
     review: MspDirectUpdateReviewContainerComponent;
 
     constructor(public updateStateService: UpdateStateService) {}
 
-    ngOnInit() {
+    ngAfterViewInit() {
         this.reviewItems();
     }
 
