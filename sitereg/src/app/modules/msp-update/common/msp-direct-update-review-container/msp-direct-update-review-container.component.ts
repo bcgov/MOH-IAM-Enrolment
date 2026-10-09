@@ -3,13 +3,12 @@ import { Router } from '@angular/router';
 
 @Component({
     standalone: false,
-    // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'sitereg-update-review-container',
     templateUrl: './msp-direct-update-review-container.component.html',
     styleUrls: ['./msp-direct-update-review-container.component.scss'],
 })
 export class MspDirectUpdateReviewContainerComponent{
-    header: string | null;
+    @Input() header: string | null;
     @Input() redirectPath: string | null;
     @Input() sectionItems: any | null;
 
