@@ -114,8 +114,19 @@ export class MspDirectUpdateSigningAuthorityEditComponent
                 null,
                 cUpdateSigningAuthorityValidator.edit.administeringFor,
             ],
-            // changeAdministerFor: [null, cUpdateSigningAuthorityValidator.edit.changeAdministeringFor],
-            // changeRole: [this.changeRoleOptions[0], cUpdateSigningAuthorityValidator.edit.changeRole],
+        });
+        const updateAdministeringForValidator = () => {
+            const isAdmin = form.get('isAdmin')?.value;
+            const administeringFor = form.get('administeringFor');
+            administeringFor?.setValidators([
+                ...(isAdmin ? [Validators.required] : []),
+                ...cUpdateSigningAuthorityValidator.edit.administeringFor,
+            ]);
+            administeringFor?.updateValueAndValidity();
+        };
+        updateAdministeringForValidator();
+        form.get('isAdmin')?.valueChanges.subscribe(() => {
+            updateAdministeringForValidator();
         });
         this.patchValue(form);
         return form;

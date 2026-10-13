@@ -97,22 +97,22 @@ export const cUpdateSigningAuthorityValidator = {
         initial: [...cUpdateSigningAuthoritySharedValidator.initial],
         lastName: [...cUpdateSigningAuthoritySharedValidator.lastName],
         jobTitle: [...cUpdateSigningAuthoritySharedValidator.jobTitle],
-        emailAddress: [...cUpdateSigningAuthoritySharedValidator.emailAddress],
-        confirmEmail: [...cUpdateSigningAuthoritySharedValidator.confirmEmail],
+        emailAddress: [
+            Validators.required,
+            ...cUpdateSigningAuthoritySharedValidator.emailAddress,
+        ],
+        confirmEmail: [
+            Validators.required,
+            ...cUpdateSigningAuthoritySharedValidator.confirmEmail,
+        ],
         phone: [...cUpdateSigningAuthoritySharedValidator.phone],
         ext: [...cUpdateSigningAuthoritySharedValidator.ext],
         fax: [...cUpdateSigningAuthoritySharedValidator.fax],
         isAdmin: [Validators.required],
-
-        // changeRole: [
-        //     Validators.required,
-        // ],
-
         changeAdministeringFor: [],
         administeringFor: [
             ...cUpdateSigningAuthoritySharedValidator.administeringFor,
         ],
-
         forIdentifyEmailAddress: [
             Validators.required,
             ...cUpdateSigningAuthoritySharedValidator.emailAddress,
