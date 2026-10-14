@@ -52,10 +52,8 @@ export class MspDirectUpdateOrganizationEditComponent
 
     private createOrUpdateForms() {
         if (!this.formState) {
-            // console.log('create form');
             this.parentForm = this.createForm();
         } else {
-            // console.log('update form with state provided');
             this.parentForm = this.formState;
         }
         this.statusChanged.emit(this.parentForm);
