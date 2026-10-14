@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, DestroyRef, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
     FormGroup,
     FormBuilder,
@@ -30,6 +31,7 @@ import { RandomObjects, IDataForm } from '../../../common/i-dataform';
 export class MspDirectUpdateSigningAuthorityEditComponent
     implements OnInit, IDataForm {
     private arrayFormPropertyName = 'arrayOfForms';
+    private readonly destroyRef = inject(DestroyRef);
     @Input() formState: FormGroup | null;
     @Output() formArrayChanged: EventEmitter<
         FormGroup | FormArray | null
@@ -125,9 +127,11 @@ export class MspDirectUpdateSigningAuthorityEditComponent
             administeringFor?.updateValueAndValidity();
         };
         updateAdministeringForValidator();
-        form.get('isAdmin')?.valueChanges.subscribe(() => {
-            updateAdministeringForValidator();
-        });
+        form.get('isAdmin')?.valueChanges
+            .pipe(takeUntilDestroyed(this.destroyRef))
+            .subscribe(() => {
+                updateAdministeringForValidator();
+            });
         this.patchValue(form);
         return form;
     }
