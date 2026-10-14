@@ -119,13 +119,10 @@ export function formControlValidity(
         other: false,
     };
     if (fg.controls[name].pristine) return status;
-
     status = {
         required: isRequiredError(fg, name),
         other: validMultiFormControlExceptRequired(fg, name),
     };
-
-    // // console.log(status);
     return status;
 }
 
@@ -235,6 +232,7 @@ export const cUpdateValidators = {
          * Org number can be 8 digits and is 0/left-padded if smaller
          */
         organizationName: [
+            Validators.required,
             Validators.maxLength(100),
             trailingSpacesValidator(),
         ],
@@ -242,23 +240,35 @@ export const cUpdateValidators = {
             Validators.maxLength(10),
             // trailingSpacesValidator()
         ],
-        street: [Validators.maxLength(10), trailingSpacesValidator()],
-        streetName: [Validators.maxLength(75), trailingSpacesValidator()],
-        addressLine2: [Validators.maxLength(200), trailingSpacesValidator()],
+        street: [
+            Validators.required,
+            Validators.maxLength(10),
+            trailingSpacesValidator()],
+        streetName: [
+            Validators.required,
+            Validators.maxLength(75),
+            trailingSpacesValidator()],
+        addressLine2: [
+            Validators.maxLength(200),
+            trailingSpacesValidator()],
         city: [
+            Validators.required,
             Validators.minLength(1),
             Validators.maxLength(25),
             trailingSpacesValidator(),
         ],
-        province: [Validators.minLength(2), Validators.maxLength(3)],
+        province: [
+            Validators.required,
+            Validators.minLength(2),
+            Validators.maxLength(3)],
         postalCode: [
+            Validators.required,
             Validators.maxLength(7),
-            // postalCodeValidator(),
         ],
-        // blueCross: [], why blue cross is missing this time in question
-        administeringFor: [Validators.required, Validators.maxLength(100)],
+        administeringFor: [
+            Validators.required,
+            Validators.maxLength(100)],
     },
-
     user: {
         userTitle: [Validators.maxLength(5), trailingSpacesValidator()],
         firstName: [
@@ -366,10 +376,8 @@ export function matchFieldValidator(
     return (formGroup: FormGroup): ValidationErrors | null => {
         const matchControl = formGroup.get(matchControlName);
         const control = formGroup.get(controlName);
-        // // console.log('Control: %o Matching Control: %o', control.value, matchControl.value);
         if (!(control.value === matchControl.value)) {
             control.setErrors({ match: true });
-            // // console.log(formGroup);
             return null;
         }
         control.setErrors({ match: null });
