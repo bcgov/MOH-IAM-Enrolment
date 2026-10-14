@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, DestroyRef, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
     FormGroup,
     FormBuilder,
@@ -30,6 +31,7 @@ import { RandomObjects, IDataForm } from '../../../common/i-dataform';
 export class MspDirectUpdateSigningAuthorityEditComponent
     implements OnInit, IDataForm {
     private arrayFormPropertyName = 'arrayOfForms';
+    private readonly destroyRef = inject(DestroyRef);
     @Input() formState: FormGroup | null;
     @Output() formArrayChanged: EventEmitter<
         FormGroup | FormArray | null
@@ -114,9 +116,22 @@ export class MspDirectUpdateSigningAuthorityEditComponent
                 null,
                 cUpdateSigningAuthorityValidator.edit.administeringFor,
             ],
-            // changeAdministerFor: [null, cUpdateSigningAuthorityValidator.edit.changeAdministeringFor],
-            // changeRole: [this.changeRoleOptions[0], cUpdateSigningAuthorityValidator.edit.changeRole],
         });
+        const updateAdministeringForValidator = () => {
+            const isAdmin = form.get('isAdmin')?.value;
+            const administeringFor = form.get('administeringFor');
+            administeringFor?.setValidators([
+                ...(isAdmin ? [Validators.required] : []),
+                ...cUpdateSigningAuthorityValidator.edit.administeringFor,
+            ]);
+            administeringFor?.updateValueAndValidity();
+        };
+        updateAdministeringForValidator();
+        form.get('isAdmin')?.valueChanges
+            .pipe(takeUntilDestroyed(this.destroyRef))
+            .subscribe(() => {
+                updateAdministeringForValidator();
+            });
         this.patchValue(form);
         return form;
     }

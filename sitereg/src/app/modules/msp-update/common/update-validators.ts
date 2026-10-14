@@ -91,8 +91,6 @@ export function formControlValidity(
         required: isRequiredError(fg, name),
         other: validMultiFormControlExceptRequired(fg, name),
     };
-
-    // // console.log(status);
     return status;
 }
 
