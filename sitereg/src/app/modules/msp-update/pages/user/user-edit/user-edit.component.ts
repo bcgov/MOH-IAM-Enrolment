@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, DestroyRef, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
     FormGroup,
     FormBuilder,
@@ -29,6 +30,7 @@ import { IDataForm, RandomObjects } from '../../../common/i-dataform';
 })
 export class MspDirectUpdateUserEditComponent implements OnInit, IDataForm {
     private arrayFormPropertyName = 'arrayOfForms';
+    private readonly destroyRef = inject(DestroyRef);
     @Input() formState: FormGroup | null;
     @Output() formArrayChanged: EventEmitter<
         FormGroup | FormArray | null
@@ -107,20 +109,34 @@ export class MspDirectUpdateUserEditComponent implements OnInit, IDataForm {
             phone: [null, cUpdateUserValidator.edit.phone],
             ext: [null, cUpdateUserValidator.edit.ext],
             fax: [null, cUpdateUserValidator.edit.fax],
-            administeringFor: [
-                null,
-                cUpdateUserValidator.edit.administeringFor,
+            changeRole: [
+                this.changeRoleOptions[0],
+                cUpdateUserValidator.edit.changeRole,
             ],
             changeAdministerFor: [
                 null,
                 cUpdateUserValidator.edit.changeAdministeringFor,
             ],
-            changeRole: [
-                this.changeRoleOptions[0],
-                cUpdateUserValidator.edit.changeRole,
-            ],
+            administeringFor: [
+                null,
+                cUpdateUserValidator.edit.administeringFor,
+            ]
         });
-
+        const updateAdministeringForValidator = () => {
+            const changeAdmin = form.get('changeAdministerFor')?.value;
+            const administeringFor = form.get('administeringFor');
+            administeringFor?.setValidators([
+                ...(changeAdmin ? [Validators.required] : []),
+                ...cUpdateUserValidator.edit.administeringFor,
+            ]);
+            administeringFor?.updateValueAndValidity();
+        };
+        updateAdministeringForValidator();
+        form.get('changeAdministerFor')?.valueChanges
+            .pipe(takeUntilDestroyed(this.destroyRef))
+            .subscribe(() => {
+                updateAdministeringForValidator();
+            });
         this.patchValue(form);
         return form;
     }

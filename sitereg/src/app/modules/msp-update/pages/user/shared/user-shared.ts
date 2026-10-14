@@ -81,17 +81,18 @@ export const cUpdateUserValidator = {
         initial: [...cUpdateUserSharedValidator.initial],
         lastName: [...cUpdateUserSharedValidator.lastName],
         jobTitle: [...cUpdateUserSharedValidator.jobTitle],
-        emailAddress: [...cUpdateUserSharedValidator.emailAddress],
-        confirmEmail: [...cUpdateUserSharedValidator.confirmEmail],
+        emailAddress: [
+            Validators.required,
+            ...cUpdateUserSharedValidator.emailAddress],
+        confirmEmail: [
+            Validators.required,
+            ...cUpdateUserSharedValidator.confirmEmail],
         phone: [...cUpdateUserSharedValidator.phone],
         ext: [...cUpdateUserSharedValidator.ext],
         fax: [...cUpdateUserSharedValidator.fax],
-
         changeRole: [Validators.required],
-
         changeAdministeringFor: [Validators.required],
         administeringFor: [...cUpdateUserSharedValidator.administeringFor],
-
         forIdentifyEmailAddress: [
             Validators.required,
             ...cUpdateUserSharedValidator.emailAddress,
